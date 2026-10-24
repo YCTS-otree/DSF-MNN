@@ -330,14 +330,27 @@ class SemanticDreaming:
             batches.append(batch)
         consolidated = []
         for index, batch in enumerate(batches):
-            result, receipt = self.provider.json(CONSOLIDATE, {"notes": batch, "current_time": records[-1]["observed_at"]}, max_tokens=6000, label=f"consolidate-{index:03d}")
             valid = {n["id"] for n in batch}
-            for field in ("themes", "carryover", "decisions"):
-                if not isinstance(result.get(field), list):
-                    raise MemoryError("consolidation-schema")
-                for item in result[field]:
-                    if not item.get("memory_refs") or not set(item["memory_refs"]) <= valid:
-                        raise MemoryError("consolidation-unknown-memory-ref")
+            payload = {"notes": batch, "current_time": records[-1]["observed_at"]}
+            # A malformed cloud response never becomes memory. Retain the failed
+            # receipt and allow at most two source-constrained repairs.
+            for attempt in range(3):
+                result, receipt = self.provider.json(CONSOLIDATE, payload, max_tokens=6000,
+                    label=f"consolidate-{index:03d}" + (f"-repair-{attempt}" if attempt else ""))
+                error = None
+                for field in ("themes", "carryover", "decisions"):
+                    if not isinstance(result.get(field), list) or len(result[field]) > 12:
+                        error = "consolidation-schema"; break
+                    for item in result[field]:
+                        refs = item.get("memory_refs") if isinstance(item, dict) else None
+                        if not isinstance(refs, list) or not refs or any(not isinstance(r, str) or r not in valid for r in refs):
+                            error = "consolidation-unknown-memory-ref"; break
+                    if error: break
+                if not error: break
+                if attempt == 2: raise MemoryError(error)
+                payload = {"notes": batch, "current_time": records[-1]["observed_at"],
+                    "invalid_previous_output": result, "validation_error": error,
+                    "repair_rule": "只纠正输出结构与来源；memory_refs 只能原样取 notes.id。无支持的项目删除，不编造替代事实。"}
             result["self_update"] = None
             consolidated.append(result)
         consolidation = {k: [item for result in consolidated for item in result[k]] for k in ("themes", "carryover", "decisions")}

@@ -10,30 +10,30 @@ DSF 基线 `1ffbc76`，分支 `integration/mnn-v1.2.0`；MNN 基线 `7fcccbc`，
 
 | 验证 | 结果 |
 | --- | --- |
-| DSF Node 自动测试 | 184 项：181 通过，3 跳过 |
-| DSF Python unittest | 59 通过 |
-| MNN Python pytest | 62 通过 |
+| DSF Node 自动测试 | 185 项：182 通过，3 跳过 |
+| DSF Python unittest | 60 通过 |
+| MNN Python pytest | 63 通过 |
 | MNN 原生 Node 适配器 | 9 通过 |
 | JS/MJS 与 Python 静态检查 | 通过 |
 | 合成整份 DSF 恢复及恢复前备份 | 通过，正式数据写入 false |
-| 独立 DSH 完整 profile 加载 | 通过，创建 weixin Agent；未提交模型聊天 |
+| 独立 DSH 完整 profile 加载 | 通过，创建 weixin Agent；一条真实合成输入调用 memory_recall，已核验 user/runtime-context 和无 Self commit |
 | WebUI | 隔离数据预览、状态/禁用态、未验收启用被拒绝；不操作正式开关 |
 
 安装门禁逐项重新执行测试，日志、哈希和报告保存在本机 `.research/mnn-v120/validation-*/`。Windows owned-worker tree 取消测试在沙箱内曾因 taskkill 权限不足失败，获得操作测试自建进程的执行权限后通过；没有杀其他服务。
 
 ## 三轮真实 Provider / 原生 DSH
 
-最终原始记录：`.research/mnn-v120/native-b1f85a8a-dac1-4b7f-baa4-8d04212b29c5/`。使用合成聊天、独立存储、真实 DeepSeek 官方 API，测试路由窗口 65,536（用于较快触发阈值，不代表模型正式容量）。真实 native tokenMeter、官方词表及 Provider 用量参与预算。
+最终原始记录：`.research/mnn-v120/native-54ce88b1-e729-4aca-bab6-d03205c931e7/`。使用合成聊天、独立存储、真实 DeepSeek 官方 API，测试路由窗口 65,536（用于较快触发阈值，不代表模型正式容量）。真实 native tokenMeter、官方词表及 Provider 用量参与预算。
 
 | 轮 | 整理前预测压力 | 整理后 | 累计 checkpoint |
 | --- | --- | --- | --- |
-| 1 / Soft | 86.09% | 15.42% | 1 |
-| 2 / Emergency | 98.64% | 37.91% | 2 |
-| 3 / Soft | 87.14% | 18.35% | 3 |
+| 1 / Soft | 86.07% | 16.36% | 1 |
+| 2 / Emergency | 96.41% | 40.88% | 2 |
+| 3 / Soft | 86.84% | 21.66% | 3 |
 
-三轮保持同一个 Session `9790bc66-47da-411b-970d-20f13b2087b0`。每轮原事件前缀完全相等，Carryover 存在，精确参数 `port=3099` 有证据召回。退出后官方持久化只读重开：3 个工具调用、3 个结果配对，pending input=0，末轮 completed，三个 checkpoint 保留。
+三轮保持同一个 Session `07a8b44b-24a7-46ad-bf09-d0e4706452e7`。每轮原事件前缀完全相等，Carryover 存在，精确参数 `port=3099` 有证据召回。退出后官方持久化只读重开：3 个工具调用、3 个结果配对，pending input=0，末轮 completed，三个 checkpoint 保留。
 
-另一次成功运行 native-916557f8… 的三轮也保留。全部失败样本保留：路由 catalog 窗口覆盖、Surface 顺序、旧成功收据错误复用、16K 配置无法达到 60% 水位、undefined 恢复 source 严格校验失败。对应修复已进入回归。没有删除失败目录或用后续结果覆盖它们。
+其他成功运行 native-916557f8…、native-b1f85a8a… 的三轮也保留。全部失败样本保留：路由 catalog 窗口覆盖、Surface 顺序、旧成功收据错误复用、16K 配置无法达到 60% 水位、undefined 恢复 source 严格校验失败。对应修复已进入回归。没有删除失败目录或用后续结果覆盖它们。
 
 ## 跨日与故障
 
@@ -58,3 +58,9 @@ v1.1 原图 Hybrid MRR 0.2708 低于早期冻结 0.3125 的负面结论未被抹
 ## 正式部署记录
 
 实际正式整理和激活结果另记在本机 `formal-*/report.json` 与 [部署状态](mnn-deployment-v120.md)。隔离通过不等于微信/QQ 端到端或多天生产验收。启用建议：先原 Session 一次整理，校验前缀、Self 与恢复水位，启用 MNN 后受控恢复；持续观察用量、延迟、召回来源与故障。禁止一次开放互联网或扩大渠道白名单。
+
+正式入口首次在模型配置检查停止：隔离适配器 thinking=disabled 与运行 max 档位不兼容；未执行该次分段 LLM，保留 formal-975c0f61… 失败报告和前置 DSF。修复后对 1,000,000 窗口/max 路由作无网络元数据检查，并重跑上述三轮真实 canary。
+
+正式第二次整理的 10 个 extraction chunk 已落盘，但巩固回复含未知 memory_ref，被验证层拒绝，未提交 checkpoint；formal-43dc88c4… 及收据保留。增加最多两次受来源约束的修复请求；无效引用仍不能提交，故障测试覆盖持续失败停止。
+
+完整 Profile 的首个真实输入暴露缺少 sessions/llm/tokenMeter 的 Cordis 注入声明，已修复；随后一轮断言误把 P2 当作 system 角色，改按实际 user/runtime-context 核验。最终 runtime-355c28c8… 成功：调用 MNN recall、完成、无 Self 提交工具、无对外 emission。另加双花括号记忆不被再次模板求值的回归。
