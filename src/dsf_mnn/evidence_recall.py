@@ -41,7 +41,9 @@ class EvidenceRecall:
         rows = self.store.db.execute("SELECT body FROM events WHERE scope=? AND json_extract(body,'$.metadata.dsh_type') IN ('user/message','tool/result','turn/end') ORDER BY seq LIMIT 10000", (scope.key,)).fetchall()
         documents = []
         for row in rows:
-            event = json.loads(row[0]); text = semantic_body(event)
+            event = json.loads(row[0])
+            if event.get('metadata',{}).get('self_read'): continue
+            text = semantic_body(event)
             if text:
                 documents.append((event, text, Counter(tokenize(text))))
         count = len(documents)

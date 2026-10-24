@@ -18,15 +18,34 @@ class AdaptiveContextReconstruction:
         if dreaming["snapshot_digest"] != digest(export["events"]):
             raise MemoryError("acr-dreaming-snapshot-mismatch")
         by_seq = {r["seq"]: r for r in records}
-        projected = [p for p in export["projected"] if p["message"]]
+        by_surface = {p["seq"]:p for p in export["projected"] if p["message"]}
+        projected = [by_surface[seq] for seq in export["surface"] if seq in by_surface]
         systems = [p for p in projected if p["message"]["role"] == "system" and any(b.get("text") for b in p["message"]["content"])]
         if not systems or projected[0]["message"]["role"] != "system":
             raise MemoryError("acr-effective-system-source-required")
         latest = systems[-1]
         # The latest complete system projection is copied exactly; no LLM rewrites identity.
+        surface = export["surface"]
+        latest_index = surface.index(latest["seq"])
         tail = [p for p in projected if p["seq"] > latest["seq"]]
-        if len(tail) > 32 or any(p["message"]["role"] not in {"user", "assistant", "tool"} for p in tail):
-            raise MemoryError("acr-tail-needs-explicit-selection")
+        start_index, end_index = 1, latest_index
+        if end_index <= start_index or len(tail) > 32:
+            # Rolling Sessions need a safe cut after a stable system anchor too.
+            start_index = latest_index + 1
+            opened, cuts = set(), []
+            for index in range(start_index, len(surface)):
+                message = next((p["message"] for p in projected if p["seq"] == surface[index]), None)
+                if message:
+                    for block in message.get("content", []):
+                        if block.get("type") == "tool-call": opened.add(block.get("callId", block.get("id")))
+                    if message["role"] == "tool": opened.discard(message.get("callId") or message.get("source", {}).get("callId"))
+                if not opened and index < len(surface) - 4: cuts.append(index + 1)
+            if not cuts: raise MemoryError("acr-no-safe-rolling-range")
+            end_index = cuts[-1]
+            tail = [p for p in projected if p["seq"] in surface[end_index:]]
+        shadowed = surface[start_index:end_index]
+        if not shadowed: raise MemoryError("acr-no-useful-range")
+        retained = [p for p in projected if p["seq"] not in shadowed]
         nodes = store.nodes(scope)
         task_ranking = []
         if current_task:
@@ -73,13 +92,17 @@ class AdaptiveContextReconstruction:
         first_text = "\n".join(b["text"] for b in first_system["message"]["content"] if b.get("type") == "text")
         # Keep the original system anchor and the latest effective system event intact.
         # Native DSH forbids writing a system/message outside an open Agent step.
-        messages = [{"role": "system", "content": first_text}, {"role": "user", "content": checkpoint}, {"role": "system", "content": system_text}]
-        for item in tail:
-            # Media are never flattened away silently; a retained media tail needs native image pricing.
-            if any(b.get("type") in {"image", "file", "document", "tool-call"} for b in item["message"].get("content", [])):
-                raise MemoryError("acr-retained-media-or-tool-tail-needs-native-budget")
-            text = "\n".join(b.get("text", "") for b in item["message"]["content"] if b.get("type") == "text")
-            messages.append({"role": item["message"]["role"], "content": text})
+        messages = []
+        inserted = False
+        for seq in surface:
+            if seq in shadowed:
+                if not inserted: messages.append({"role": "user", "content": checkpoint}); inserted = True
+                continue
+            item = next((p for p in retained if p["seq"] == seq), None)
+            if item:
+                if any(b.get("type") in {"image", "file", "document"} for b in item["message"].get("content", [])):
+                    raise MemoryError("acr-retained-media-needs-native-budget")
+                messages.append({"role": item["message"]["role"], "content": canonical(item["message"]["content"])})
         tokens = self.counter.count_messages(messages)
         if tokens + self.output_reserve > self.context_tokens:
             raise MemoryError("acr-budget-cannot-preserve-required-context")
@@ -90,7 +113,8 @@ class AdaptiveContextReconstruction:
         source_to_nodes = {}
         for node in nodes:
             for source in node["source_refs"]:
-                source_to_nodes.setdefault(int(source.split(":")[-1]), []).append(node)
+                if source in {r["id"] for r in records}:
+                    source_to_nodes.setdefault(next(r["seq"] for r in records if r["id"] == source), []).append(node)
         exact_sources = {e["source_seq"] for e in evidence}
         carryover_refs = {ref for item in consolidation["carryover"] for ref in item["memory_refs"]}
         tail_seqs = {p["seq"] for p in tail}
@@ -110,10 +134,6 @@ class AdaptiveContextReconstruction:
             actions.append({"source_seq": seq, "actions": chosen or ["ARCHIVE"], "memory_refs": [n["id"] for n in associated],
                             "exact_representation": "whole-event" if seq in {latest["seq"], first_system["seq"]} or seq in tail_seqs else "quoted-evidence" if seq in exact_sources else None})
         first = export["surface"][0]
-        end_index = export["surface"].index(latest["seq"])
-        shadowed = export["surface"][1:end_index]
-        if not shadowed:
-            raise MemoryError("acr-no-useful-range")
         return {"schema": "dsf-mnn-context-plan/1", "session_id": export["session_id"], "snapshot_digest": dreaming["snapshot_digest"],
                 "original_event_count": len(export["events"]), "original_surface": export["surface"],
                 "system_head_seq": first, "system_source_seq": latest["seq"], "system_content_digest": digest(latest["message"]["content"]),

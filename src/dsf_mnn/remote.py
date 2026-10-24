@@ -5,6 +5,7 @@ import subprocess
 import time
 
 from .model import MemoryError, canonical, digest
+from .atomic_io import atomic_json
 
 
 class RemoteProvider:
@@ -41,7 +42,7 @@ class RemoteProvider:
         if file.exists():
             failure = file.with_name(file.stem + "-failed-" + str(time.time_ns()) + ".json")
             file.rename(failure)
-        file.write_text(json.dumps(record, ensure_ascii=False, indent=2), encoding="utf-8")
+        atomic_json(file,record)
         if not record["success"]:
             raise MemoryError(response.get("error", "provider-failed"))
         return response

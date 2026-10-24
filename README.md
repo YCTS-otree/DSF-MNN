@@ -1,6 +1,6 @@
 # DSF-MNN — Memory Neural Network
 
-DSF 的独立记忆研究子项目，当前版本 **1.1.0（认知恢复研究版）**。在现有 `DSF_MNN` Git 仓库内开发，不搬动 DSF，不修改正式 DSH 会话。
+DSF 的独立记忆研究子项目，当前版本 **1.2.0（DSF 生产集成候选版）**。在现有 `DSF_MNN` Git 仓库内开发，不搬动 DSF，不修改正式 DSH 会话。
 
 已实现统一证据存储、Episode/事实演化、混合检索、多跳与局部 PPR，以及三种共享图谱的回忆。新增独立远程 LLM 分段 Dreaming、Carryover、ACR 和直接继承原生 CompactionEngine 的后端；真实超限会话已在隔离副本完成同 Session 原生对话续接，原始 3,901 个事件和 Self 保持完整。
 
@@ -63,3 +63,6 @@ python scripts/record_experiment.py benchmark --label scale-ablation
 - [第三方声明](THIRD_PARTY_NOTICES.md)、[更新记录](CHANGELOG.md)
 
 固定研究基线：提交 `29d7de6`，附注标签 `research-baseline-29d7de6`。源码、实验数据、环境和配置已独立冻结，见 [基线说明](docs/RESEARCH_BASELINE.md) 与 [冻结清单](baselines/research-29d7de6/manifest.json)。后续开发与实验不改写该基线。
+
+
+v1.2.0 共享图生产接口、连续 Dreaming、条件式召回及原子恢复见 [集成记录](docs/PRODUCTION_V120.md)。正式启用由 DSF 主线的备份/验收门禁负责；MNN 单独运行不会接管正式 Session。
