@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 import re
 import sqlite3
+import hashlib
 from . import MemoryStore, Scope, Event
 from .model import MemoryError, Node, canonical, digest
 from .semantic import SemanticDreaming, normalize_export
@@ -18,6 +19,9 @@ from .token_budget import CpuTokenCounter
 from .atomic_io import atomic_json
 
 SHARED=Scope('dsf-whale','shared','all-native-sessions','dsf-production')
+
+def implementation_revision():
+    return hashlib.sha256(b''.join((Path(__file__).parent/name).read_bytes() for name in ('production.py','semantic.py','acr.py'))).hexdigest()
 
 class ProductionMemory:
     def __init__(self,directory,dsf_root=None,tokenizer=None,*,provider=None,counter=None):
@@ -75,7 +79,8 @@ class ProductionMemory:
         return {**baseline,'text':baseline['text']+extra,'bytes':baseline['bytes']+len(extra.encode()),
             'strategy':'conditional-ppr' if multi_hop and extra else 'evidence-hybrid','association_deferred':bool(multi_hop and not extra),'untrusted_memory_data':True}
     def dreaming(self,original,*,day,context_tokens=65536,output_reserve=8192,reconstruct=True,current_task=None):
-        mapped,records,lookup=self.capture(original);run_id=digest([original['session_id'],digest(original['events']),day,context_tokens,output_reserve])
+        mapped,records,lookup=self.capture(original);revision=implementation_revision()
+        run_id=digest([original['session_id'],digest(original['events']),day,context_tokens,output_reserve,reconstruct,current_task,revision])
         folder=self.directory/'runs'/run_id;folder.mkdir(parents=True,exist_ok=True)
         old=self.store.db.execute('SELECT body FROM production_runs WHERE id=?',(run_id,)).fetchone()
         if old:return json.loads(old[0])
@@ -87,11 +92,11 @@ class ProductionMemory:
         elif selected:
             history,_=SemanticDreaming(self.store,self.scope,provider,counter,folder/'semantic',concurrency=1).run(incremental)
         else:
-            receipt=self.store.db.execute('SELECT body FROM production_runs ORDER BY rowid DESC LIMIT 1').fetchone()
+            receipt=self.store.db.execute("SELECT body FROM production_runs WHERE json_extract(body,'$.session_id')=? OR json_extract(body,'$.plan.session_id')=? ORDER BY rowid DESC LIMIT 1",(original['session_id'],original['session_id'])).fetchone()
             if not receipt:raise MemoryError('dreaming-no-history')
             history=json.loads(Path(json.loads(receipt[0])['semantic_file']).read_text(encoding='utf-8'))
         history={**history,'snapshot_digest':digest(mapped['events'])};history_file=folder/'history.json';atomic_json(history_file,history)
-        result={'run_id':run_id,'memoryPersisted':True,'self_update':'noop','semantic_file':str(history_file),'snapshot_digest':digest(original['events']),'carryover':history['consolidation']['carryover']}
+        result={'run_id':run_id,'session_id':original['session_id'],'implementation_revision':revision,'memoryPersisted':True,'self_update':'noop','semantic_file':str(history_file),'snapshot_digest':digest(original['events']),'carryover':history['consolidation']['carryover']}
         if reconstruct:
             plan=AdaptiveContextReconstruction(counter,context_tokens=context_tokens,output_reserve=output_reserve).build(mapped,records,self.store,self.scope,history,current_task=current_task)
             reverse={v:k for k,v in lookup.items()}

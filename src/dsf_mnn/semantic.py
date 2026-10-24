@@ -337,14 +337,17 @@ class SemanticDreaming:
             for attempt in range(3):
                 result, receipt = self.provider.json(CONSOLIDATE, payload, max_tokens=6000,
                     label=f"consolidate-{index:03d}" + (f"-repair-{attempt}" if attempt else ""))
-                error = None
-                for field in ("themes", "carryover", "decisions"):
+                error = None if isinstance(result, dict) else "consolidation-schema"
+                for field in (("themes", "carryover", "decisions") if not error else ()):
                     if not isinstance(result.get(field), list) or len(result[field]) > 12:
                         error = "consolidation-schema"; break
                     for item in result[field]:
                         refs = item.get("memory_refs") if isinstance(item, dict) else None
                         if not isinstance(refs, list) or not refs or any(not isinstance(r, str) or r not in valid for r in refs):
                             error = "consolidation-unknown-memory-ref"; break
+                        keys = ('title','summary') if field == 'themes' else ('description',)
+                        if any(not isinstance(item.get(k),str) or not 1<=len(item[k])<=1600 for k in keys):
+                            error = "consolidation-schema"; break
                     if error: break
                 if not error: break
                 if attempt == 2: raise MemoryError(error)

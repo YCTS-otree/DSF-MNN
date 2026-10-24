@@ -72,3 +72,23 @@ def test_interrupted_dreaming_restarts_without_duplicate_events(tmp_path):
         changed=deepcopy(data);changed['events'][1]['data']['content'][0]['text']='篡改'
         with pytest.raises(MemoryError,match='native-source-changed'):m.capture(changed)
     finally:m.close()
+
+def test_idle_extraction_then_rest_uses_distinct_run_without_reextracting(tmp_path):
+    provider=Provider();m=ProductionMemory(tmp_path,provider=provider,counter=Counter());data=export()
+    try:
+        daily=m.dreaming(data,day='2026-10-21',reconstruct=False);calls=provider.calls
+        rest=m.dreaming(data,day='2026-10-21',reconstruct=True)
+        assert daily['run_id']!=rest['run_id'] and 'plan' in rest
+        assert provider.calls==calls and rest['session_id']=='original'
+    finally:m.close()
+
+def test_implementation_change_preserves_old_run_and_reuses_durable_chunks(tmp_path,monkeypatch):
+    import dsf_mnn.production as production
+    provider=Provider();m=ProductionMemory(tmp_path,provider=provider,counter=Counter());data=export()
+    try:
+        one=m.dreaming(data,day='2026-10-21');calls=provider.calls;old=(tmp_path/'runs'/one['run_id']/'history.json').read_bytes()
+        monkeypatch.setattr(production,'implementation_revision',lambda:'new-tested-build')
+        two=m.dreaming(data,day='2026-10-21')
+        assert one['run_id']!=two['run_id'];assert provider.calls==calls
+        assert (tmp_path/'runs'/one['run_id']/'history.json').read_bytes()==old
+    finally:m.close()
