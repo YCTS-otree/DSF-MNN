@@ -1,0 +1,10 @@
+{
+  "schema": "dsf-mnn-config/1",
+  "database": "data/mnn.sqlite",
+  "embedding": { "provider": "lexical-hash-baseline", "dimension": 256 },
+  "dsh": { "mode": "shadow", "production_enabled": false, "version": "0.2.0-rc.2", "snapshot_resolver": null },
+  "daily": { "idle_minutes": 15 },
+  "dreaming": { "time": "03:00", "timezone": "Asia/Shanghai", "self_update_required": false },
+  "association": { "enabled": true, "max_hops": 2, "max_nodes": 32, "max_operations": 200000, "deadline_ms": 100, "context_bytes": 2048 },
+  "identity": { "bootstrap_version": "0.1.0", "core_file": null, "self_file": null, "origin_letter": null }
+}

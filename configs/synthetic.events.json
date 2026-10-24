@@ -1,0 +1,6 @@
+{
+  "events": [
+    { "id": "demo-1", "seq": 1, "content": "微信桥接发送超时后可能重试，任务要求避免重复发送。", "observed_at": "2026-10-23T10:00:00+08:00", "source_kind": "user_statement", "source_uri": "synthetic://demo/1", "topic": "bridge-idempotency", "metadata": { "critical": true, "task_state": { "next": "验证幂等键" }, "exact_parameters": { "test_port": 3099 } } },
+    { "id": "demo-2", "seq": 2, "content": "合成工具测试确认：相同幂等键重复请求只写入一条记录。", "observed_at": "2026-10-23T10:01:00+08:00", "source_kind": "tool_verified", "source_uri": "synthetic://demo/2", "topic": "bridge-idempotency", "metadata": { "kind": "test_result", "agent_experience": true } }
+  ]
+}

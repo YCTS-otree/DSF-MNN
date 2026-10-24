@@ -1,0 +1,1347 @@
+{
+  "schema": "dsf-mnn-benchmark/1",
+  "version": "1.0.0",
+  "recorded_at_utc": "2026-10-24T05:11:56.850007+00:00",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "python": "3.10.11",
+  "embedding": "lexical-hash-baseline/1/256",
+  "corpus": "synthetic-v1 (8 queries/size; 4 factual + 4 directed two-hop)",
+  "seed": "deterministic, no randomness",
+  "cost": {
+    "llm_requests": 0,
+    "embedding_api_requests": 0,
+    "graph_linking_llm_requests": 0,
+    "dreaming_llm_requests": 0,
+    "self_reflection_llm_requests": 0,
+    "model_tokens": 0,
+    "context_token_saving": null
+  },
+  "results": [
+    {
+      "size": 100,
+      "indexing_seconds": 0.06763959996169433,
+      "indexing_items_per_second": 1478.4238827052793,
+      "incremental_ms": 1.936800021212548,
+      "dreaming_bounded_batch_ms": 40.30399996554479,
+      "rebuild_ms": 27.917300001718104,
+      "backup_ms": 14.059300010558218,
+      "backup_reopen_recall": true,
+      "database_bytes": 770048,
+      "vector_bytes": 103424,
+      "nodes": 101,
+      "edges": 66,
+      "strategies": {
+        "vector": {
+          "recall_at_5": 0.5,
+          "mrr_at_5": 0.5,
+          "ndcg_at_5": 0.5,
+          "evidence_precision_at_5": 0.1,
+          "latency_ms_median": 0.0,
+          "latency_ms_p95": 15.000000013969839,
+          "queries": 8,
+          "truncated_queries": 0,
+          "details": [
+            {
+              "query": "case00020",
+              "gold": "n20",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n20"
+              ]
+            },
+            {
+              "query": "case00041",
+              "gold": "n41",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n41"
+              ]
+            },
+            {
+              "query": "case00062",
+              "gold": "n62",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n62",
+                "n80"
+              ]
+            },
+            {
+              "query": "case00083",
+              "gold": "n83",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n83"
+              ]
+            },
+            {
+              "query": "trigger00000",
+              "gold": "n2",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n0"
+              ]
+            },
+            {
+              "query": "trigger00003",
+              "gold": "n5",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n3",
+                "n39",
+                "n70"
+              ]
+            },
+            {
+              "query": "trigger00006",
+              "gold": "n8",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n6",
+                "n44"
+              ]
+            },
+            {
+              "query": "trigger00009",
+              "gold": "n11",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n9",
+                "n54"
+              ]
+            }
+          ]
+        },
+        "hybrid": {
+          "recall_at_5": 0.5,
+          "mrr_at_5": 0.5,
+          "ndcg_at_5": 0.5,
+          "evidence_precision_at_5": 0.1,
+          "latency_ms_median": 0.0,
+          "latency_ms_p95": 0.0,
+          "queries": 8,
+          "truncated_queries": 0,
+          "details": [
+            {
+              "query": "case00020",
+              "gold": "n20",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n20"
+              ]
+            },
+            {
+              "query": "case00041",
+              "gold": "n41",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n41"
+              ]
+            },
+            {
+              "query": "case00062",
+              "gold": "n62",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n62",
+                "n80"
+              ]
+            },
+            {
+              "query": "case00083",
+              "gold": "n83",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n83"
+              ]
+            },
+            {
+              "query": "trigger00000",
+              "gold": "n2",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n0"
+              ]
+            },
+            {
+              "query": "trigger00003",
+              "gold": "n5",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n3",
+                "n39",
+                "n70"
+              ]
+            },
+            {
+              "query": "trigger00006",
+              "gold": "n8",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n6",
+                "n44"
+              ]
+            },
+            {
+              "query": "trigger00009",
+              "gold": "n11",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n9",
+                "n54"
+              ]
+            }
+          ]
+        },
+        "bfs": {
+          "recall_at_5": 0.875,
+          "mrr_at_5": 0.5979166666666667,
+          "ndcg_at_5": 0.6646911706634918,
+          "evidence_precision_at_5": 0.17500000000000002,
+          "latency_ms_median": 0.0,
+          "latency_ms_p95": 16.00000000325963,
+          "queries": 8,
+          "truncated_queries": 0,
+          "details": [
+            {
+              "query": "case00020",
+              "gold": "n20",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n20"
+              ]
+            },
+            {
+              "query": "case00041",
+              "gold": "n41",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n41"
+              ]
+            },
+            {
+              "query": "case00062",
+              "gold": "n62",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n62",
+                "n80"
+              ]
+            },
+            {
+              "query": "case00083",
+              "gold": "n83",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n83"
+              ]
+            },
+            {
+              "query": "trigger00000",
+              "gold": "n2",
+              "category": "multihop",
+              "rank_at_5": 3,
+              "retrieved": [
+                "n0",
+                "n1",
+                "n2"
+              ]
+            },
+            {
+              "query": "trigger00003",
+              "gold": "n5",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n3",
+                "n39",
+                "n70",
+                "n4",
+                "n40"
+              ]
+            },
+            {
+              "query": "trigger00006",
+              "gold": "n8",
+              "category": "multihop",
+              "rank_at_5": 4,
+              "retrieved": [
+                "n6",
+                "n44",
+                "n7",
+                "n8"
+              ]
+            },
+            {
+              "query": "trigger00009",
+              "gold": "n11",
+              "category": "multihop",
+              "rank_at_5": 5,
+              "retrieved": [
+                "n9",
+                "n54",
+                "n10",
+                "n55",
+                "n11"
+              ]
+            }
+          ]
+        },
+        "ppr": {
+          "recall_at_5": 1.0,
+          "mrr_at_5": 0.6291666666666667,
+          "ndcg_at_5": 0.7185257404226659,
+          "evidence_precision_at_5": 0.2,
+          "latency_ms_median": 0.0,
+          "latency_ms_p95": 0.0,
+          "queries": 8,
+          "truncated_queries": 0,
+          "details": [
+            {
+              "query": "case00020",
+              "gold": "n20",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n20"
+              ]
+            },
+            {
+              "query": "case00041",
+              "gold": "n41",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n41"
+              ]
+            },
+            {
+              "query": "case00062",
+              "gold": "n62",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n62",
+                "n80"
+              ]
+            },
+            {
+              "query": "case00083",
+              "gold": "n83",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n83"
+              ]
+            },
+            {
+              "query": "trigger00000",
+              "gold": "n2",
+              "category": "multihop",
+              "rank_at_5": 3,
+              "retrieved": [
+                "n0",
+                "n1",
+                "n2"
+              ]
+            },
+            {
+              "query": "trigger00003",
+              "gold": "n5",
+              "category": "multihop",
+              "rank_at_5": 5,
+              "retrieved": [
+                "n3",
+                "n4",
+                "n39",
+                "n70",
+                "n5"
+              ]
+            },
+            {
+              "query": "trigger00006",
+              "gold": "n8",
+              "category": "multihop",
+              "rank_at_5": 4,
+              "retrieved": [
+                "n6",
+                "n7",
+                "n44",
+                "n8"
+              ]
+            },
+            {
+              "query": "trigger00009",
+              "gold": "n11",
+              "category": "multihop",
+              "rank_at_5": 4,
+              "retrieved": [
+                "n9",
+                "n10",
+                "n54",
+                "n11",
+                "n55"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "size": 1000,
+      "indexing_seconds": 0.9269498999929056,
+      "indexing_items_per_second": 1078.8069560260521,
+      "incremental_ms": 4.017200029920787,
+      "dreaming_bounded_batch_ms": 94.05539999715984,
+      "rebuild_ms": 437.22410005284473,
+      "backup_ms": 40.88020004564896,
+      "backup_reopen_recall": true,
+      "database_bytes": 5365760,
+      "vector_bytes": 1025024,
+      "nodes": 1001,
+      "edges": 666,
+      "strategies": {
+        "vector": {
+          "recall_at_5": 0.5,
+          "mrr_at_5": 0.4375,
+          "ndcg_at_5": 0.4538662191964322,
+          "evidence_precision_at_5": 0.1,
+          "latency_ms_median": 16.00000000325963,
+          "latency_ms_p95": 32.00000000651926,
+          "queries": 8,
+          "truncated_queries": 0,
+          "details": [
+            {
+              "query": "case00020",
+              "gold": "n20",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n20",
+                "n461",
+                "n264"
+              ]
+            },
+            {
+              "query": "case00041",
+              "gold": "n41",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n41",
+                "n720"
+              ]
+            },
+            {
+              "query": "case00062",
+              "gold": "n62",
+              "category": "factual",
+              "rank_at_5": 2,
+              "retrieved": [
+                "n329",
+                "n62",
+                "n716",
+                "n80"
+              ]
+            },
+            {
+              "query": "case00083",
+              "gold": "n83",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n83",
+                "n421"
+              ]
+            },
+            {
+              "query": "trigger00000",
+              "gold": "n2",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n0",
+                "n847"
+              ]
+            },
+            {
+              "query": "trigger00003",
+              "gold": "n5",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n3",
+                "n597",
+                "n101",
+                "n132",
+                "n163"
+              ]
+            },
+            {
+              "query": "trigger00006",
+              "gold": "n8",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n6",
+                "n251",
+                "n329",
+                "n44",
+                "n444"
+              ]
+            },
+            {
+              "query": "trigger00009",
+              "gold": "n11",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n9",
+                "n597",
+                "n906",
+                "n54",
+                "n826"
+              ]
+            }
+          ]
+        },
+        "hybrid": {
+          "recall_at_5": 0.5,
+          "mrr_at_5": 0.5,
+          "ndcg_at_5": 0.5,
+          "evidence_precision_at_5": 0.1,
+          "latency_ms_median": 16.00000000325963,
+          "latency_ms_p95": 31.000000017229468,
+          "queries": 8,
+          "truncated_queries": 0,
+          "details": [
+            {
+              "query": "case00020",
+              "gold": "n20",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n20",
+                "n461",
+                "n264"
+              ]
+            },
+            {
+              "query": "case00041",
+              "gold": "n41",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n41",
+                "n720"
+              ]
+            },
+            {
+              "query": "case00062",
+              "gold": "n62",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n62",
+                "n329",
+                "n716",
+                "n80"
+              ]
+            },
+            {
+              "query": "case00083",
+              "gold": "n83",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n83",
+                "n421"
+              ]
+            },
+            {
+              "query": "trigger00000",
+              "gold": "n2",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n0",
+                "n847"
+              ]
+            },
+            {
+              "query": "trigger00003",
+              "gold": "n5",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n3",
+                "n597",
+                "n101",
+                "n132",
+                "n163"
+              ]
+            },
+            {
+              "query": "trigger00006",
+              "gold": "n8",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n6",
+                "n251",
+                "n329",
+                "n44",
+                "n444"
+              ]
+            },
+            {
+              "query": "trigger00009",
+              "gold": "n11",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n9",
+                "n597",
+                "n906",
+                "n54",
+                "n826"
+              ]
+            }
+          ]
+        },
+        "bfs": {
+          "recall_at_5": 0.625,
+          "mrr_at_5": 0.525,
+          "ndcg_at_5": 0.5483566009043177,
+          "evidence_precision_at_5": 0.125,
+          "latency_ms_median": 16.00000000325963,
+          "latency_ms_p95": 32.00000000651926,
+          "queries": 8,
+          "truncated_queries": 0,
+          "details": [
+            {
+              "query": "case00020",
+              "gold": "n20",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n20",
+                "n461",
+                "n264",
+                "n265",
+                "n266"
+              ]
+            },
+            {
+              "query": "case00041",
+              "gold": "n41",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n41",
+                "n720",
+                "n721",
+                "n722"
+              ]
+            },
+            {
+              "query": "case00062",
+              "gold": "n62",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n62",
+                "n329",
+                "n716",
+                "n80"
+              ]
+            },
+            {
+              "query": "case00083",
+              "gold": "n83",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n83",
+                "n421",
+                "n422"
+              ]
+            },
+            {
+              "query": "trigger00000",
+              "gold": "n2",
+              "category": "multihop",
+              "rank_at_5": 5,
+              "retrieved": [
+                "n0",
+                "n847",
+                "n1",
+                "n848",
+                "n2"
+              ]
+            },
+            {
+              "query": "trigger00003",
+              "gold": "n5",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n3",
+                "n597",
+                "n101",
+                "n132",
+                "n163"
+              ]
+            },
+            {
+              "query": "trigger00006",
+              "gold": "n8",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n6",
+                "n251",
+                "n329",
+                "n44",
+                "n444"
+              ]
+            },
+            {
+              "query": "trigger00009",
+              "gold": "n11",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n9",
+                "n597",
+                "n906",
+                "n54",
+                "n826"
+              ]
+            }
+          ]
+        },
+        "ppr": {
+          "recall_at_5": 0.625,
+          "mrr_at_5": 0.53125,
+          "ndcg_at_5": 0.5538345697591741,
+          "evidence_precision_at_5": 0.125,
+          "latency_ms_median": 16.00000000325963,
+          "latency_ms_p95": 30.999999959021807,
+          "queries": 8,
+          "truncated_queries": 0,
+          "details": [
+            {
+              "query": "case00020",
+              "gold": "n20",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n20",
+                "n461",
+                "n264",
+                "n265",
+                "n266"
+              ]
+            },
+            {
+              "query": "case00041",
+              "gold": "n41",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n41",
+                "n720",
+                "n721",
+                "n722"
+              ]
+            },
+            {
+              "query": "case00062",
+              "gold": "n62",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n62",
+                "n329",
+                "n716",
+                "n80"
+              ]
+            },
+            {
+              "query": "case00083",
+              "gold": "n83",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n83",
+                "n421",
+                "n422"
+              ]
+            },
+            {
+              "query": "trigger00000",
+              "gold": "n2",
+              "category": "multihop",
+              "rank_at_5": 4,
+              "retrieved": [
+                "n0",
+                "n1",
+                "n847",
+                "n2",
+                "n848"
+              ]
+            },
+            {
+              "query": "trigger00003",
+              "gold": "n5",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n3",
+                "n4",
+                "n597",
+                "n101",
+                "n132"
+              ]
+            },
+            {
+              "query": "trigger00006",
+              "gold": "n8",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n6",
+                "n7",
+                "n251",
+                "n329",
+                "n44"
+              ]
+            },
+            {
+              "query": "trigger00009",
+              "gold": "n11",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n9",
+                "n10",
+                "n597",
+                "n906",
+                "n54"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "size": 10000,
+      "indexing_seconds": 21.91510450001806,
+      "indexing_items_per_second": 456.30628866003167,
+      "incremental_ms": 26.153599959798157,
+      "dreaming_bounded_batch_ms": 919.8527000262402,
+      "rebuild_ms": 18460.124399978667,
+      "backup_ms": 316.18639995576814,
+      "backup_reopen_recall": true,
+      "database_bytes": 50384896,
+      "vector_bytes": 10241024,
+      "nodes": 10001,
+      "edges": 6666,
+      "strategies": {
+        "vector": {
+          "recall_at_5": 0.125,
+          "mrr_at_5": 0.0625,
+          "ndcg_at_5": 0.07886621919643219,
+          "evidence_precision_at_5": 0.025,
+          "latency_ms_median": 180.0000000221189,
+          "latency_ms_p95": 452.9999999795109,
+          "queries": 8,
+          "truncated_queries": 0,
+          "details": [
+            {
+              "query": "case00020",
+              "gold": "n20",
+              "category": "factual",
+              "rank_at_5": null,
+              "retrieved": [
+                "n1815",
+                "n4884",
+                "n5659",
+                "n1270",
+                "n1358"
+              ]
+            },
+            {
+              "query": "case00041",
+              "gold": "n41",
+              "category": "factual",
+              "rank_at_5": null,
+              "retrieved": [
+                "n4822",
+                "n1628",
+                "n2492",
+                "n2935",
+                "n3430"
+              ]
+            },
+            {
+              "query": "case00062",
+              "gold": "n62",
+              "category": "factual",
+              "rank_at_5": null,
+              "retrieved": [
+                "n9162",
+                "n1136",
+                "n1588",
+                "n1688",
+                "n1913"
+              ]
+            },
+            {
+              "query": "case00083",
+              "gold": "n83",
+              "category": "factual",
+              "rank_at_5": 2,
+              "retrieved": [
+                "n5039",
+                "n83",
+                "n1016",
+                "n1364",
+                "n1543"
+              ]
+            },
+            {
+              "query": "trigger00000",
+              "gold": "n2",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n0",
+                "n2242",
+                "n3303",
+                "n7206",
+                "n8790"
+              ]
+            },
+            {
+              "query": "trigger00003",
+              "gold": "n5",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n3",
+                "n2023",
+                "n5309",
+                "n1589",
+                "n9029"
+              ]
+            },
+            {
+              "query": "trigger00006",
+              "gold": "n8",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n6",
+                "n1771",
+                "n1276",
+                "n1370",
+                "n2299"
+              ]
+            },
+            {
+              "query": "trigger00009",
+              "gold": "n11",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n9",
+                "n2280",
+                "n597",
+                "n906",
+                "n1015"
+              ]
+            }
+          ]
+        },
+        "hybrid": {
+          "recall_at_5": 0.5,
+          "mrr_at_5": 0.5,
+          "ndcg_at_5": 0.5,
+          "evidence_precision_at_5": 0.1,
+          "latency_ms_median": 218.99999998277053,
+          "latency_ms_p95": 265.00000001396984,
+          "queries": 8,
+          "truncated_queries": 0,
+          "details": [
+            {
+              "query": "case00020",
+              "gold": "n20",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n20",
+                "n1815",
+                "n4884",
+                "n5659",
+                "n1270"
+              ]
+            },
+            {
+              "query": "case00041",
+              "gold": "n41",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n41",
+                "n4822",
+                "n1628",
+                "n2492",
+                "n2935"
+              ]
+            },
+            {
+              "query": "case00062",
+              "gold": "n62",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n62",
+                "n9162",
+                "n1136",
+                "n1588",
+                "n1688"
+              ]
+            },
+            {
+              "query": "case00083",
+              "gold": "n83",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n83",
+                "n5039",
+                "n1016",
+                "n1364",
+                "n1543"
+              ]
+            },
+            {
+              "query": "trigger00000",
+              "gold": "n2",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n0",
+                "n2242",
+                "n3303",
+                "n7206",
+                "n8790"
+              ]
+            },
+            {
+              "query": "trigger00003",
+              "gold": "n5",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n3",
+                "n2023",
+                "n5309",
+                "n1589",
+                "n9029"
+              ]
+            },
+            {
+              "query": "trigger00006",
+              "gold": "n8",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n6",
+                "n1771",
+                "n1276",
+                "n1370",
+                "n2299"
+              ]
+            },
+            {
+              "query": "trigger00009",
+              "gold": "n11",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n9",
+                "n2280",
+                "n597",
+                "n906",
+                "n1015"
+              ]
+            }
+          ]
+        },
+        "bfs": {
+          "recall_at_5": 0.5,
+          "mrr_at_5": 0.5,
+          "ndcg_at_5": 0.5,
+          "evidence_precision_at_5": 0.1,
+          "latency_ms_median": 226.49999998975545,
+          "latency_ms_p95": 233.99999999674037,
+          "queries": 8,
+          "truncated_queries": 0,
+          "details": [
+            {
+              "query": "case00020",
+              "gold": "n20",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n20",
+                "n1815",
+                "n4884",
+                "n5659",
+                "n1270"
+              ]
+            },
+            {
+              "query": "case00041",
+              "gold": "n41",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n41",
+                "n4822",
+                "n1628",
+                "n2492",
+                "n2935"
+              ]
+            },
+            {
+              "query": "case00062",
+              "gold": "n62",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n62",
+                "n9162",
+                "n1136",
+                "n1588",
+                "n1688"
+              ]
+            },
+            {
+              "query": "case00083",
+              "gold": "n83",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n83",
+                "n5039",
+                "n1016",
+                "n1364",
+                "n1543"
+              ]
+            },
+            {
+              "query": "trigger00000",
+              "gold": "n2",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n0",
+                "n2242",
+                "n3303",
+                "n7206",
+                "n8790"
+              ]
+            },
+            {
+              "query": "trigger00003",
+              "gold": "n5",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n3",
+                "n2023",
+                "n5309",
+                "n1589",
+                "n9029"
+              ]
+            },
+            {
+              "query": "trigger00006",
+              "gold": "n8",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n6",
+                "n1771",
+                "n1276",
+                "n1370",
+                "n2299"
+              ]
+            },
+            {
+              "query": "trigger00009",
+              "gold": "n11",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n9",
+                "n2280",
+                "n597",
+                "n906",
+                "n1015"
+              ]
+            }
+          ]
+        },
+        "ppr": {
+          "recall_at_5": 0.5,
+          "mrr_at_5": 0.5,
+          "ndcg_at_5": 0.5,
+          "evidence_precision_at_5": 0.1,
+          "latency_ms_median": 233.99999999674037,
+          "latency_ms_p95": 234.99999998603016,
+          "queries": 8,
+          "truncated_queries": 0,
+          "details": [
+            {
+              "query": "case00020",
+              "gold": "n20",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n20",
+                "n1815",
+                "n4884",
+                "n5659",
+                "n1270"
+              ]
+            },
+            {
+              "query": "case00041",
+              "gold": "n41",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n41",
+                "n4822",
+                "n1628",
+                "n2492",
+                "n2935"
+              ]
+            },
+            {
+              "query": "case00062",
+              "gold": "n62",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n62",
+                "n9162",
+                "n1136",
+                "n1588",
+                "n1688"
+              ]
+            },
+            {
+              "query": "case00083",
+              "gold": "n83",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n83",
+                "n5039",
+                "n1016",
+                "n1364",
+                "n1543"
+              ]
+            },
+            {
+              "query": "trigger00000",
+              "gold": "n2",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n0",
+                "n1",
+                "n2242",
+                "n3303",
+                "n7206"
+              ]
+            },
+            {
+              "query": "trigger00003",
+              "gold": "n5",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n3",
+                "n4",
+                "n2023",
+                "n5309",
+                "n1589"
+              ]
+            },
+            {
+              "query": "trigger00006",
+              "gold": "n8",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n6",
+                "n7",
+                "n1771",
+                "n1276",
+                "n1370"
+              ]
+            },
+            {
+              "query": "trigger00009",
+              "gold": "n11",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n9",
+                "n10",
+                "n2280",
+                "n597",
+                "n906"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "limitations": [
+    "No neural embedding evaluation",
+    "Not LongMemEval/LoCoMo",
+    "Not DSH A-F end-to-end comparison",
+    "Eight queries are a smoke benchmark, not statistical quality evidence",
+    "Latency includes scoped storage reads; deadline is cooperative",
+    "Evidence precision uses one gold node per query and five requested slots"
+  ]
+}
