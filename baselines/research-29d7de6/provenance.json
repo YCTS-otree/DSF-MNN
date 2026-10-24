@@ -1,0 +1,45 @@
+{
+  "historical_runs": [
+    {
+      "run": "20261024T131935+0800-ad043dfdbc",
+      "original_git_revision": "07ee8f44e0ad8bf2aa58a9830bf4ca8209bc1713",
+      "original_git_dirty": true,
+      "source_tree_sha256": "a1da861631aa24a45126a07cf6e42b4aa1cea1d236ea1c516b5212217ff0ec30",
+      "success": false,
+      "recorder_failure": "UnicodeEncodeError"
+    },
+    {
+      "run": "20261024T132006+0800-62f4c67863",
+      "original_git_revision": "07ee8f44e0ad8bf2aa58a9830bf4ca8209bc1713",
+      "original_git_dirty": true,
+      "source_tree_sha256": "2679e9043445c03309d3eefcae67e41d9a4d285efd2177c5bbafc3973fcdf0cd",
+      "success": true,
+      "recorder_failure": null
+    },
+    {
+      "run": "20261024T132038+0800-d61aba89f9",
+      "original_git_revision": "07ee8f44e0ad8bf2aa58a9830bf4ca8209bc1713",
+      "original_git_dirty": true,
+      "source_tree_sha256": "4c442d44fba3fef0aeaaf38df68c1aca94e7f6a6d33e508dee7913e0a0139060",
+      "success": true,
+      "recorder_failure": null
+    },
+    {
+      "run": "20261024T132204+0800-9245f92d0d",
+      "original_git_revision": "07ee8f44e0ad8bf2aa58a9830bf4ca8209bc1713",
+      "original_git_dirty": true,
+      "source_tree_sha256": "7a29b3f56a908037e31bf08de186bfdfc3997ece3bc26fabd9ba946a78eae31c",
+      "success": true,
+      "recorder_failure": null
+    },
+    {
+      "run": "release-20261024T132259-49ba45f15e",
+      "original_git_revision": null,
+      "original_git_dirty": null,
+      "source_tree_sha256": null,
+      "success": true,
+      "recorder_failure": null
+    }
+  ],
+  "policy": "Original run revisions, dirty states, failures and missing historical records are preserved; not relabeled as exact-commit results."
+}

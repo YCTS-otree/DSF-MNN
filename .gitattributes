@@ -4,3 +4,5 @@
 experiments/** -text -diff
 experiments/*.md text eol=lf diff
 benchmarks/*.json -text -diff
+baselines/**/*.json -text -diff
+baselines/**/SHA256SUMS -text -diff

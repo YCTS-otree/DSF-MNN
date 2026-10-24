@@ -1,0 +1,543 @@
+{
+  "python": "3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]",
+  "sqlite": "3.40.1",
+  "node": "v24.19.0",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "python_packages": [
+    {
+      "name": "antlr4-python3-runtime",
+      "version": "4.9.3"
+    },
+    {
+      "name": "anyio",
+      "version": "4.14.2"
+    },
+    {
+      "name": "colorama",
+      "version": "0.4.6"
+    },
+    {
+      "name": "exceptiongroup",
+      "version": "1.3.1"
+    },
+    {
+      "name": "hydra-core",
+      "version": "1.3.7"
+    },
+    {
+      "name": "idna",
+      "version": "3.11"
+    },
+    {
+      "name": "iniconfig",
+      "version": "2.3.0"
+    },
+    {
+      "name": "omegaconf",
+      "version": "2.3.1"
+    },
+    {
+      "name": "packaging",
+      "version": "26.2"
+    },
+    {
+      "name": "pluggy",
+      "version": "1.6.0"
+    },
+    {
+      "name": "Pygments",
+      "version": "2.19.2"
+    },
+    {
+      "name": "pytest",
+      "version": "8.4.2"
+    },
+    {
+      "name": "PyYAML",
+      "version": "6.0.2"
+    },
+    {
+      "name": "tomli",
+      "version": "2.4.0"
+    },
+    {
+      "name": "typing_extensions",
+      "version": "4.16.0"
+    },
+    {
+      "name": "tzdata",
+      "version": "2025.3"
+    }
+  ],
+  "pytest_plugins": [
+    {
+      "entry_point": "anyio",
+      "module": "anyio.pytest_plugin",
+      "distribution": "anyio",
+      "version": "4.14.2"
+    },
+    {
+      "entry_point": "hydra_pytest",
+      "module": "hydra.extra.pytest_plugin",
+      "distribution": "hydra-core",
+      "version": "1.3.7"
+    }
+  ],
+  "npm_packages": [
+    {
+      "name": "@deepseek-ai/cordis",
+      "version": "4.0.5",
+      "relative_path": "@deepseek-ai/cordis",
+      "dependencies": {
+        "@standard-schema/spec": "^1.1.0",
+        "@deepseek-ai/cosmokit": "~1.8.6"
+      },
+      "peerDependencies": {
+        "@deepseek-ai/cordis-plugin-include": "~1.0.10",
+        "@deepseek-ai/cordis-plugin-loader": "~1.0.6"
+      }
+    },
+    {
+      "name": "@deepseek-ai/cordis-plugin-include",
+      "version": "1.0.10",
+      "relative_path": "@deepseek-ai/cordis-plugin-include",
+      "dependencies": {
+        "@deepseek-ai/cosmokit": "~1.8.6",
+        "js-yaml": "^4.1.0"
+      },
+      "peerDependencies": {
+        "@deepseek-ai/cordis-plugin-loader": "~1.0.6",
+        "@deepseek-ai/cordis": "~4.0.5"
+      }
+    },
+    {
+      "name": "@deepseek-ai/cordis-plugin-loader",
+      "version": "1.0.6",
+      "relative_path": "@deepseek-ai/cordis-plugin-loader",
+      "dependencies": {
+        "@deepseek-ai/cosmokit": "~1.8.6",
+        "@deepseek-ai/schemastery": "~3.18.5"
+      },
+      "peerDependencies": {
+        "@deepseek-ai/cordis": "~4.0.5",
+        "node-addon-require-builtin": "^0.1.9"
+      }
+    },
+    {
+      "name": "@deepseek-ai/cosmokit",
+      "version": "1.8.6",
+      "relative_path": "@deepseek-ai/cosmokit",
+      "dependencies": {},
+      "peerDependencies": {}
+    },
+    {
+      "name": "@deepseek-ai/dsh-agent",
+      "version": "0.2.0-rc.2",
+      "relative_path": "@deepseek-ai/dsh-agent",
+      "dependencies": {},
+      "peerDependencies": {
+        "@deepseek-ai/dsh-scope": "0.2.0-rc.2",
+        "@deepseek-ai/dsh-session": "0.2.0-rc.2",
+        "@deepseek-ai/dsh-session-projection": "0.2.0-rc.2",
+        "@deepseek-ai/dsh-llm": "0.2.0-rc.2",
+        "@deepseek-ai/dsh-workspace": "0.2.0-rc.2",
+        "@deepseek-ai/cordis": "~4.0.4",
+        "@deepseek-ai/dsh-typert-protocol": "0.2.0-rc.2",
+        "@deepseek-ai/dsh-util-values": "0.2.0-rc.2",
+        "@deepseek-ai/dsh-invariants": "0.2.0-rc.2",
+        "@deepseek-ai/dsh-system-prompt": "0.2.0-rc.2"
+      }
+    },
+    {
+      "name": "@deepseek-ai/dsh-attachment",
+      "version": "0.2.0-rc.2",
+      "relative_path": "@deepseek-ai/dsh-attachment",
+      "dependencies": {},
+      "peerDependencies": {
+        "@deepseek-ai/cordis": "~4.0.4",
+        "@deepseek-ai/dsh-brand": "0.2.0-rc.2"
+      }
+    },
+    {
+      "name": "@deepseek-ai/dsh-brand",
+      "version": "0.2.0-rc.2",
+      "relative_path": "@deepseek-ai/dsh-brand",
+      "dependencies": {},
+      "peerDependencies": {
+        "@deepseek-ai/cordis": "~4.0.4"
+      }
+    },
+    {
+      "name": "@deepseek-ai/dsh-commands",
+      "version": "0.2.0-rc.2",
+      "relative_path": "@deepseek-ai/dsh-commands",
+      "dependencies": {
+        "zod": "^4.4.3",
+        "@deepseek-ai/dsh-util-crypto": "0.2.0-rc.2"
+      },
+      "peerDependencies": {
+        "@deepseek-ai/dsh-invariants": "0.2.0-rc.2",
+        "@deepseek-ai/dsh-llm": "0.2.0-rc.2",
+        "@deepseek-ai/dsh-scope": "0.2.0-rc.2",
+        "@deepseek-ai/dsh-brand": "0.2.0-rc.2",
+        "@deepseek-ai/dsh-attachment": "0.2.0-rc.2",
+        "@deepseek-ai/dsh-session": "0.2.0-rc.2",
+        "@deepseek-ai/dsh-typert-protocol": "0.2.0-rc.2",
+        "@deepseek-ai/cordis": "~4.0.4",
+        "@deepseek-ai/dsh-agent": "0.2.0-rc.2"
+      }
+    },
+    {
+      "name": "@deepseek-ai/dsh-compaction",
+      "version": "0.2.0-rc.2",
+      "relative_path": "@deepseek-ai/dsh-compaction",
+      "dependencies": {},
+      "peerDependencies": {
+        "@deepseek-ai/dsh-brand": "0.2.0-rc.2",
+        "@deepseek-ai/dsh-commands": "0.2.0-rc.2",
+        "@deepseek-ai/dsh-invariants": "0.2.0-rc.2",
+        "@deepseek-ai/dsh-llm": "0.2.0-rc.2",
+        "@deepseek-ai/dsh-session": "0.2.0-rc.2",
+        "@deepseek-ai/cordis": "~4.0.4"
+      }
+    },
+    {
+      "name": "@deepseek-ai/dsh-compaction-basic",
+      "version": "0.2.0-rc.2",
+      "relative_path": "@deepseek-ai/dsh-compaction-basic",
+      "dependencies": {
+        "@deepseek-ai/dsh-util-values": "0.2.0-rc.2",
+        "@deepseek-ai/schemastery": "~3.18.4"
+      },
+      "peerDependencies": {
+        "@deepseek-ai/dsh-agent": "0.2.0-rc.2",
+        "@deepseek-ai/cordis": "~4.0.4",
+        "@deepseek-ai/dsh-commands": "0.2.0-rc.2",
+        "@deepseek-ai/dsh-compaction": "0.2.0-rc.2",
+        "@deepseek-ai/dsh-compaction-tool-result-pruner": "0.2.0-rc.2",
+        "@deepseek-ai/dsh-llm": "0.2.0-rc.2",
+        "@deepseek-ai/dsh-session": "0.2.0-rc.2",
+        "@deepseek-ai/dsh-token-meter": "0.2.0-rc.2"
+      }
+    },
+    {
+      "name": "@deepseek-ai/dsh-compaction-image-offload",
+      "version": "0.2.0-rc.2",
+      "relative_path": "@deepseek-ai/dsh-compaction-image-offload",
+      "dependencies": {
+        "@deepseek-ai/dsh-util-values": "0.2.0-rc.2"
+      },
+      "peerDependencies": {
+        "@deepseek-ai/dsh-agent": "0.2.0-rc.2",
+        "@deepseek-ai/cordis": "~4.0.4",
+        "@deepseek-ai/dsh-compaction": "0.2.0-rc.2",
+        "@deepseek-ai/dsh-llm": "0.2.0-rc.2",
+        "@deepseek-ai/dsh-session": "0.2.0-rc.2"
+      }
+    },
+    {
+      "name": "@deepseek-ai/dsh-compaction-tool-result-pruner",
+      "version": "0.2.0-rc.2",
+      "relative_path": "@deepseek-ai/dsh-compaction-tool-result-pruner",
+      "dependencies": {
+        "@deepseek-ai/dsh-util-values": "0.2.0-rc.2",
+        "@deepseek-ai/schemastery": "~3.18.4"
+      },
+      "peerDependencies": {
+        "@deepseek-ai/cordis": "~4.0.4",
+        "@deepseek-ai/dsh-llm": "0.2.0-rc.2",
+        "@deepseek-ai/dsh-compaction": "0.2.0-rc.2",
+        "@deepseek-ai/dsh-session": "0.2.0-rc.2",
+        "@deepseek-ai/dsh-token-meter": "0.2.0-rc.2"
+      }
+    },
+    {
+      "name": "@deepseek-ai/dsh-invariants",
+      "version": "0.2.0-rc.2",
+      "relative_path": "@deepseek-ai/dsh-invariants",
+      "dependencies": {
+        "@deepseek-ai/schemastery": "~3.18.4"
+      },
+      "peerDependencies": {
+        "@deepseek-ai/cordis": "~4.0.4"
+      }
+    },
+    {
+      "name": "@deepseek-ai/dsh-llm",
+      "version": "0.2.0-rc.2",
+      "relative_path": "@deepseek-ai/dsh-llm",
+      "dependencies": {
+        "zod": "^4.4.3",
+        "@deepseek-ai/dsh-util-crypto": "0.2.0-rc.2",
+        "@deepseek-ai/dsh-timeout": "0.2.0-rc.2",
+        "@deepseek-ai/dsh-brand": "0.2.0-rc.2",
+        "@deepseek-ai/schemastery": "~3.18.4",
+        "@deepseek-ai/dsh-typert-protocol": "0.2.0-rc.2",
+        "@deepseek-ai/dsh-util-values": "0.2.0-rc.2"
+      },
+      "peerDependencies": {
+        "@deepseek-ai/cordis": "~4.0.4"
+      }
+    },
+    {
+      "name": "@deepseek-ai/dsh-llm-retry",
+      "version": "0.2.0-rc.2",
+      "relative_path": "@deepseek-ai/dsh-llm-retry",
+      "dependencies": {
+        "zod": "^4.4.3",
+        "@deepseek-ai/schemastery": "~3.18.4"
+      },
+      "peerDependencies": {
+        "@deepseek-ai/dsh-brand": "0.2.0-rc.2",
+        "@deepseek-ai/dsh-agent": "0.2.0-rc.2",
+        "@deepseek-ai/dsh-invariants": "0.2.0-rc.2",
+        "@deepseek-ai/dsh-llm": "0.2.0-rc.2",
+        "@deepseek-ai/dsh-session": "0.2.0-rc.2",
+        "@deepseek-ai/dsh-timeout": "0.2.0-rc.2",
+        "@deepseek-ai/cordis": "~4.0.4",
+        "@deepseek-ai/dsh-session-projection": "0.2.0-rc.2"
+      }
+    },
+    {
+      "name": "@deepseek-ai/dsh-scope",
+      "version": "0.2.0-rc.2",
+      "relative_path": "@deepseek-ai/dsh-scope",
+      "dependencies": {},
+      "peerDependencies": {
+        "@deepseek-ai/dsh-invariants": "0.2.0-rc.2",
+        "@deepseek-ai/cordis": "~4.0.4"
+      }
+    },
+    {
+      "name": "@deepseek-ai/dsh-session",
+      "version": "0.2.0-rc.2",
+      "relative_path": "@deepseek-ai/dsh-session",
+      "dependencies": {
+        "@deepseek-ai/dsh-llm": "0.2.0-rc.2",
+        "@deepseek-ai/dsh-brand": "0.2.0-rc.2",
+        "@deepseek-ai/dsh-util-values": "0.2.0-rc.2"
+      },
+      "peerDependencies": {
+        "@deepseek-ai/cordis": "~4.0.4",
+        "@deepseek-ai/dsh-scope": "0.2.0-rc.2"
+      }
+    },
+    {
+      "name": "@deepseek-ai/dsh-session-persistence",
+      "version": "0.2.0-rc.2",
+      "relative_path": "@deepseek-ai/dsh-session-persistence",
+      "dependencies": {
+        "@deepseek-ai/dsh-util-values": "0.2.0-rc.2"
+      },
+      "peerDependencies": {
+        "@deepseek-ai/cordis": "~4.0.4",
+        "@deepseek-ai/dsh-brand": "0.2.0-rc.2",
+        "@deepseek-ai/dsh-session": "0.2.0-rc.2",
+        "@deepseek-ai/dsh-timeout": "0.2.0-rc.2"
+      }
+    },
+    {
+      "name": "@deepseek-ai/dsh-session-projection",
+      "version": "0.2.0-rc.2",
+      "relative_path": "@deepseek-ai/dsh-session-projection",
+      "dependencies": {
+        "zod": "^4.4.3"
+      },
+      "peerDependencies": {
+        "@deepseek-ai/dsh-session": "0.2.0-rc.2",
+        "@deepseek-ai/cordis": "~4.0.4"
+      }
+    },
+    {
+      "name": "@deepseek-ai/dsh-storage",
+      "version": "0.2.0-rc.2",
+      "relative_path": "@deepseek-ai/dsh-storage",
+      "dependencies": {},
+      "peerDependencies": {
+        "@deepseek-ai/cordis": "~4.0.4"
+      }
+    },
+    {
+      "name": "@deepseek-ai/dsh-storage-domain",
+      "version": "0.2.0-rc.2",
+      "relative_path": "@deepseek-ai/dsh-storage-domain",
+      "dependencies": {
+        "zod": "^4.4.3",
+        "@deepseek-ai/schemastery": "~3.18.4"
+      },
+      "peerDependencies": {
+        "@deepseek-ai/dsh-invariants": "0.2.0-rc.2",
+        "@deepseek-ai/dsh-storage": "0.2.0-rc.2",
+        "@deepseek-ai/cordis": "~4.0.4"
+      }
+    },
+    {
+      "name": "@deepseek-ai/dsh-system-prompt",
+      "version": "0.2.0-rc.2",
+      "relative_path": "@deepseek-ai/dsh-system-prompt",
+      "dependencies": {
+        "@deepseek-ai/schemastery": "~3.18.4"
+      },
+      "peerDependencies": {
+        "@deepseek-ai/dsh-invariants": "0.2.0-rc.2",
+        "@deepseek-ai/dsh-llm": "0.2.0-rc.2",
+        "@deepseek-ai/dsh-scope": "0.2.0-rc.2",
+        "@deepseek-ai/cordis": "~4.0.4"
+      }
+    },
+    {
+      "name": "@deepseek-ai/dsh-timeout",
+      "version": "0.2.0-rc.2",
+      "relative_path": "@deepseek-ai/dsh-timeout",
+      "dependencies": {},
+      "peerDependencies": {
+        "@deepseek-ai/cordis": "~4.0.4"
+      }
+    },
+    {
+      "name": "@deepseek-ai/dsh-token-meter",
+      "version": "0.2.0-rc.2",
+      "relative_path": "@deepseek-ai/dsh-token-meter",
+      "dependencies": {
+        "zod": "^4.4.3",
+        "@deepseek-ai/dsh-util-values": "0.2.0-rc.2",
+        "@deepseek-ai/schemastery": "~3.18.4"
+      },
+      "peerDependencies": {
+        "@deepseek-ai/cordis": "~4.0.4",
+        "@deepseek-ai/dsh-compaction": "0.2.0-rc.2",
+        "@deepseek-ai/dsh-llm": "0.2.0-rc.2",
+        "@deepseek-ai/dsh-session-projection": "0.2.0-rc.2",
+        "@deepseek-ai/dsh-compaction-image-offload": "0.2.0-rc.2",
+        "@deepseek-ai/dsh-llm-retry": "0.2.0-rc.2",
+        "@deepseek-ai/dsh-session": "0.2.0-rc.2"
+      }
+    },
+    {
+      "name": "@deepseek-ai/dsh-typert-protocol",
+      "version": "0.2.0-rc.2",
+      "relative_path": "@deepseek-ai/dsh-typert-protocol",
+      "dependencies": {
+        "@deepseek-ai/dsh-brand": "0.2.0-rc.2"
+      },
+      "peerDependencies": {
+        "@deepseek-ai/cordis": "~4.0.4"
+      }
+    },
+    {
+      "name": "@deepseek-ai/dsh-util-crypto",
+      "version": "0.2.0-rc.2",
+      "relative_path": "@deepseek-ai/dsh-util-crypto",
+      "dependencies": {},
+      "peerDependencies": {
+        "@deepseek-ai/cordis": "~4.0.4"
+      }
+    },
+    {
+      "name": "@deepseek-ai/dsh-util-values",
+      "version": "0.2.0-rc.2",
+      "relative_path": "@deepseek-ai/dsh-util-values",
+      "dependencies": {},
+      "peerDependencies": {
+        "@deepseek-ai/cordis": "~4.0.4"
+      }
+    },
+    {
+      "name": "@deepseek-ai/dsh-workspace",
+      "version": "0.2.0-rc.2",
+      "relative_path": "@deepseek-ai/dsh-workspace",
+      "dependencies": {
+        "zod": "^4.4.3",
+        "@deepseek-ai/dsh-brand": "0.2.0-rc.2"
+      },
+      "peerDependencies": {
+        "@deepseek-ai/dsh-session": "0.2.0-rc.2",
+        "@deepseek-ai/dsh-invariants": "0.2.0-rc.2",
+        "@deepseek-ai/dsh-session-persistence": "0.2.0-rc.2",
+        "@deepseek-ai/dsh-storage": "0.2.0-rc.2",
+        "@deepseek-ai/dsh-storage-domain": "0.2.0-rc.2",
+        "@deepseek-ai/dsh-typert-protocol": "0.2.0-rc.2",
+        "@deepseek-ai/cordis": "~4.0.4"
+      }
+    },
+    {
+      "name": "@deepseek-ai/schemastery",
+      "version": "3.18.5",
+      "relative_path": "@deepseek-ai/schemastery",
+      "dependencies": {
+        "@standard-schema/spec": "^1.1.0",
+        "@deepseek-ai/cosmokit": "~1.8.6"
+      },
+      "peerDependencies": {}
+    },
+    {
+      "name": "@standard-schema/spec",
+      "version": "1.1.0",
+      "relative_path": "@standard-schema/spec",
+      "dependencies": {},
+      "peerDependencies": {}
+    },
+    {
+      "name": "argparse",
+      "version": "2.0.1",
+      "relative_path": "argparse",
+      "dependencies": {},
+      "peerDependencies": {}
+    },
+    {
+      "name": "js-yaml",
+      "version": "4.3.2",
+      "relative_path": "js-yaml",
+      "dependencies": {
+        "argparse": "^2.0.1"
+      },
+      "peerDependencies": {}
+    },
+    {
+      "name": "node-addon-native-custom-loader",
+      "version": "0.1.9",
+      "relative_path": "node-addon-native-custom-loader",
+      "dependencies": {},
+      "peerDependencies": {}
+    },
+    {
+      "name": "node-addon-require-builtin",
+      "version": "0.1.9",
+      "relative_path": "node-addon-require-builtin",
+      "dependencies": {
+        "node-addon-native-custom-loader": "0.1.9"
+      },
+      "peerDependencies": {}
+    },
+    {
+      "name": "zod",
+      "version": "4.6.7",
+      "relative_path": "zod",
+      "dependencies": {},
+      "peerDependencies": {}
+    }
+  ],
+  "historically_recorded": {
+    "python": "3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]",
+    "sqlite": "3.40.1",
+    "node": "v24.19.0",
+    "platform": "Windows-10-10.0.19045-SP0",
+    "pytest": "8.4.2",
+    "dsh_packages": {
+      "dsh-compaction-basic": {
+        "version": "0.2.0-rc.2",
+        "sha256": "b7ac52f20a36430cf01a66b3a36f23a48ffdb22708d714dbe1fff541b5df4ec5"
+      },
+      "dsh-compaction": {
+        "version": "0.2.0-rc.2",
+        "sha256": "6ec67e516116e64da69cda58d6b182b22b51c5dc21c7e7615becdf59479a27ae"
+      },
+      "cordis": {
+        "version": "4.0.5",
+        "sha256": "6a9394c0877ff45218818c6e815edd038f8057e1a1deb390a8d43ec81c57691e"
+      }
+    }
+  },
+  "capture_scope": "Windows runtime files and installed pytest/plugin/tzdata dependency closure; OS image, environment secrets, user configuration and keys excluded.",
+  "historical_limit": "Full historical environment variables and transitive package hashes were not recorded then; this is a present-day preservation snapshot with matching recorded runtime versions."
+}

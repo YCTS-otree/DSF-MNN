@@ -17,3 +17,4 @@ Release/
 experiments/*/work/
 experiments/*/artifacts/
 experiments/*/source.zip
+baselines/*/artifacts/

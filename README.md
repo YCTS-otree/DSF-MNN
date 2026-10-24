@@ -60,3 +60,5 @@ python scripts/record_experiment.py benchmark --label scale-ablation
 - [架构](docs/ARCHITECTURE.md)、[源码研究](docs/REFERENCE_RESEARCH.md)、[ADR-001](docs/ADR-001.md)、[ADR-002](docs/ADR-002.md)
 - [验证与性能报告](docs/TEST_REPORT.md)、[接入和迁移](docs/INTEGRATION.md)、[后续工作与限制](docs/ROADMAP.md)
 - [第三方声明](THIRD_PARTY_NOTICES.md)、[更新记录](CHANGELOG.md)
+
+固定研究基线：提交 `29d7de6`，附注标签 `research-baseline-29d7de6`。源码、实验数据、环境和配置已独立冻结，见 [基线说明](docs/RESEARCH_BASELINE.md) 与 [冻结清单](baselines/research-29d7de6/manifest.json)。后续开发与实验不改写该基线。

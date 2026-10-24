@@ -1,0 +1,58 @@
+{
+  "schema": "dsf-mnn-frozen-reproduction/1",
+  "id": "frozen-reproduction-20261024T133642-07614d86e4",
+  "commit": "29d7de6b3fcb2e909ea8f49436640de77db09f6d",
+  "started_at": "2026-10-24T13:36:53.042211+08:00",
+  "baseline_manifest_sha256": "a33bafbb449ca3b6a0a41a83d4c947b726d1b9448f6ff0c05594f16d7c8f1f06",
+  "baseline_integrity": {
+    "verified": true,
+    "commit": "29d7de6b3fcb2e909ea8f49436640de77db09f6d",
+    "archive_members_verified": 3871,
+    "files_verified": 10
+  },
+  "execution": "Only unpacked frozen Python/Node/dependencies; sanitized environment; no original node_modules or installation used.",
+  "configuration": {
+    "python_hash_seed": 0,
+    "pytest_plugin_autoload": true,
+    "user_site_packages": false,
+    "model_requests": 0
+  },
+  "steps": [
+    {
+      "label": "environment",
+      "command": [
+        "G:\\Python\\Python\\Py_project\\DSF_MNN\\experiments\\frozen-reproduction-20261024T133642-07614d86e4\\work\\environment\\python\\python.exe",
+        "-c",
+        "import sys,sqlite3,importlib.metadata,json; print(json.dumps({'python':sys.version,'prefix':sys.prefix,'sqlite':sqlite3.sqlite_version,'pytest':importlib.metadata.version('pytest')}))"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "python",
+      "command": [
+        "G:\\Python\\Python\\Py_project\\DSF_MNN\\experiments\\frozen-reproduction-20261024T133642-07614d86e4\\work\\environment\\python\\python.exe",
+        "-m",
+        "pytest",
+        "-q",
+        "--tb=short",
+        "--basetemp",
+        "G:\\Python\\Python\\Py_project\\DSF_MNN\\experiments\\frozen-reproduction-20261024T133642-07614d86e4\\work\\python-tests",
+        "--junitxml",
+        "G:\\Python\\Python\\Py_project\\DSF_MNN\\experiments\\frozen-reproduction-20261024T133642-07614d86e4\\junit.xml"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "node",
+      "command": [
+        "G:\\Python\\Python\\Py_project\\DSF_MNN\\experiments\\frozen-reproduction-20261024T133642-07614d86e4\\work\\environment\\node\\bin\\node.exe",
+        "--test",
+        "tests/adapter.test.mjs"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "historical_results_overwritten": false,
+  "success": true,
+  "finished_at": "2026-10-24T13:37:01.037833+08:00"
+}

@@ -1,0 +1,57 @@
+{
+  "schema": "dsf-mnn-research-freeze/1",
+  "commit": "29d7de6b3fcb2e909ea8f49436640de77db09f6d",
+  "tag": "research-baseline-29d7de6",
+  "runtime_version": "1.0.0",
+  "frozen_at": "2026-10-24T13:34:42.205729+08:00",
+  "original_data_bytes": 384055516,
+  "archives": {
+    "artifacts/experiments.zip": "experiment-files.json",
+    "artifacts/environment-windows.zip": "environment-files.json"
+  },
+  "source_archive": "artifacts/source-29d7de6.zip",
+  "source_inventory": "source-files.json",
+  "files": {
+    "artifacts/environment-windows.zip": {
+      "bytes": 54157884,
+      "sha256": "207edf3161be02f9dddfecb0d1039d8ff6abe88a731d38b2c84840bdb858e1ce"
+    },
+    "artifacts/experiments.zip": {
+      "bytes": 37369423,
+      "sha256": "e97e125169f5b3a98c9a0044f5319f8a5affa155de9f964acd95c23083f44db2"
+    },
+    "artifacts/repository.bundle": {
+      "bytes": 127620,
+      "sha256": "e2c921c6f9919e989ac48bf913174f0909a74144b383768580ff9a745d26a2e8"
+    },
+    "artifacts/source-29d7de6.zip": {
+      "bytes": 155295,
+      "sha256": "dc92e35430e3d1dc56934a095f00bd4e7459c1a7dc6760574c12e24d97b2bfed"
+    },
+    "environment-files.json": {
+      "bytes": 578559,
+      "sha256": "86f2253ddfd46050775f25e2856f473e57255380ad638fc602c965743af0f5b5"
+    },
+    "environment-lock.json": {
+      "bytes": 16394,
+      "sha256": "2c83931b912e631349acd2082c1939f9cc7651a952170b0e584022c9db050a26"
+    },
+    "experiment-files.json": {
+      "bytes": 117615,
+      "sha256": "423b4504e6f3c271450b211709eb4998abdc05ea0bfa0558f211d759f0a5affd"
+    },
+    "provenance.json": {
+      "bytes": 1697,
+      "sha256": "8f05ddd81951f08d41d17c00ffffb39be308ea15c9bfd8de95f672d08e54023a"
+    },
+    "requirements-frozen.txt": {
+      "bytes": 347,
+      "sha256": "b150749c61e91a45a5f26c92183151c2c49f8f24de329b2750392d611bd5e68e"
+    },
+    "source-files.json": {
+      "bytes": 13810,
+      "sha256": "79ee473a86ea87a460dec804310ef82d9b7b574c913d2367253dfccc3109bc0e"
+    }
+  },
+  "policy": "Never overwrite, clean, move this tag or relabel historical runs. Reproduce in a fresh directory and record a new experiment."
+}
