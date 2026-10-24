@@ -1,0 +1,13 @@
+✔ backend preserves the official transaction methods through inheritance (1.3433ms)
+✔ unbound source snapshot, mismatched prepared receipt and cancellation fail closed (1.1326ms)
+✔ stdio client prepares and recalls original Chinese evidence with a trusted scope (574.3583ms)
+✔ stdio client rejects scope mismatch and does not execute cancelled operations (0.3742ms)
+✔ installed DSH BasicCompactionEngine subclass hook works without modifying node_modules (211.9929ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1078.8655

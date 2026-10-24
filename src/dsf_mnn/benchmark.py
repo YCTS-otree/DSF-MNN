@@ -1,4 +1,5 @@
 """Deterministic synthetic ablation, no paid model calls or private data."""
+from dataclasses import asdict
 from datetime import datetime, timezone
 import json
 import math
@@ -63,13 +64,18 @@ def run(sizes=(100, 1000, 10000), output_root=".cache/benchmarks"):
             for strategy in ("vector", "hybrid", "bfs", "ppr"):
                 recall = Recall(store, provider)
                 latencies, ranks, rows, truncated = [], [], [], 0
-                for query, gold, category in queries:
-                    result = recall.search(scope, query, strategy=strategy, k=5, budget=RecallBudget(deadline_ms=10000, max_operations=20000000))
+                for query_index, (query, gold, category) in enumerate(queries):
+                    budget = RecallBudget(deadline_ms=10000, max_operations=20000000)
+                    result = recall.search(scope, query, strategy=strategy, k=5, budget=budget)
                     ids = [h["node"]["id"] for h in result["hits"]]
                     rank = ids.index(gold) + 1 if gold in ids else None
                     latencies.append(result["latency_ms"])
                     ranks.append(rank)
-                    rows.append({"query": query, "gold": gold, "category": category, "rank_at_5": rank, "retrieved": ids})
+                    raw_path = root / f"scale-{size}-{strategy}-q{query_index}.json"
+                    raw_path.write_text(json.dumps({"query": query, "gold": gold, "category": category, "budget": asdict(budget), "result": result}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+                    rows.append({"query": query, "gold": gold, "category": category, "rank_at_5": rank, "retrieved": ids,
+                                 "latency_ms": result["latency_ms"], "operations": result["operations"], "truncated": result["truncated"], "visited": result["visited"],
+                                 "raw_result_file": raw_path.name})
                     truncated += int(result["truncated"] is not None)
                 ordered = sorted(latencies)
                 strategies[strategy] = {**_quality(ranks), "latency_ms_median": statistics.median(latencies),
@@ -100,6 +106,7 @@ def run(sizes=(100, 1000, 10000), output_root=".cache/benchmarks"):
     return {"schema": "dsf-mnn-benchmark/1", "version": __version__, "recorded_at_utc": datetime.now(timezone.utc).isoformat(),
             "platform": platform.platform(), "python": platform.python_version(), "embedding": "lexical-hash-baseline/1/256",
             "corpus": "synthetic-v1 (8 queries/size; 4 factual + 4 directed two-hop)", "seed": "deterministic, no randomness",
+            "clock": {"name": "perf_counter", "resolution_seconds": time.get_clock_info("perf_counter").resolution},
             "cost": {"llm_requests": 0, "embedding_api_requests": 0, "graph_linking_llm_requests": 0, "dreaming_llm_requests": 0, "self_reflection_llm_requests": 0,
                      "model_tokens": 0, "context_token_saving": None}, "results": results,
             "limitations": ["No neural embedding evaluation", "Not LongMemEval/LoCoMo", "Not DSH A-F end-to-end comparison", "Eight queries are a smoke benchmark, not statistical quality evidence", "Latency includes scoped storage reads; deadline is cooperative", "Evidence precision uses one gold node per query and five requested slots"]}

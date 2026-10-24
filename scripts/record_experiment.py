@@ -52,6 +52,8 @@ def capture(argv, environment, directory):
 
 
 def main():
+    sys.stdout.reconfigure(encoding="utf-8")
+    sys.stderr.reconfigure(encoding="utf-8")
     parser = argparse.ArgumentParser()
     parser.add_argument("suite", choices=["test", "benchmark"])
     parser.add_argument("--dsh-node-modules")
@@ -86,15 +88,19 @@ def main():
                 "sha256": hashlib.sha256((package_dir / name / "lib/index.js").read_bytes()).hexdigest(),
             }
     (run_dir / "manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    if args.suite == "test":
-        work = run_dir / "work"
-        # A brand new run directory; pytest is never pointed at an existing result directory.
-        manifest["steps"].append(capture([sys.executable, "-m", "pytest", "-q", "--tb=short", "--basetemp", str(work), "--junitxml", str(run_dir / "junit.xml")], environment, run_dir / "python"))
-        manifest["steps"].append(capture(["node", "--test", "tests/adapter.test.mjs"], environment, run_dir / "node"))
-    else:
-        manifest["steps"].append(capture([sys.executable, "scripts/benchmark.py", str(run_dir / "results.json"), str(run_dir / "work")], environment, run_dir / "benchmark"))
+    try:
+        if args.suite == "test":
+            work = run_dir / "work"
+            # A brand new run directory; pytest is never pointed at an existing result directory.
+            manifest["steps"].append(capture([sys.executable, "-m", "pytest", "-q", "--tb=short", "--basetemp", str(work), "--junitxml", str(run_dir / "junit.xml")], environment, run_dir / "python"))
+            manifest["steps"].append(capture(["node", "--test", "tests/adapter.test.mjs"], environment, run_dir / "node"))
+        else:
+            manifest["steps"].append(capture([sys.executable, "scripts/benchmark.py", str(run_dir / "results.json"), str(run_dir / "work")], environment, run_dir / "benchmark"))
+    except Exception as error:
+        # Keep a failed orchestration as an experiment too; don't leave a success-shaped record.
+        manifest["recorder_failure"] = type(error).__name__
     manifest["finished_at"] = datetime.now(ZoneInfo("Asia/Shanghai")).isoformat()
-    manifest["success"] = all(s["exit_code"] == 0 for s in manifest["steps"])
+    manifest["success"] = not manifest.get("recorder_failure") and bool(manifest["steps"]) and all(s["exit_code"] == 0 for s in manifest["steps"])
     # Update only this run's pending manifest; completed run directories are immutable by convention.
     (run_dir / "manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     artifacts = {p.relative_to(run_dir).as_posix(): {"sha256": hashlib.sha256(p.read_bytes()).hexdigest(), "bytes": p.stat().st_size}

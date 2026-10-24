@@ -1,0 +1,39 @@
+{
+  "schema": "dsf-mnn-experiment/1",
+  "id": "20261024T131935+0800-ad043dfdbc",
+  "label": "foundation-final",
+  "suite": "test",
+  "started_at": "2026-10-24T13:19:35.310091+08:00",
+  "timezone": "Asia/Shanghai",
+  "source_tree_sha256": "a1da861631aa24a45126a07cf6e42b4aa1cea1d236ea1c516b5212217ff0ec30",
+  "git_revision": "07ee8f44e0ad8bf2aa58a9830bf4ca8209bc1713",
+  "git_dirty": true,
+  "python": "3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]",
+  "python_executable": "G:\\Python\\Python_Environment\\Python310\\python.exe",
+  "sqlite": "3.40.1",
+  "node": "v24.19.0",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "dataset": "synthetic-only",
+  "model": "lexical-hash-baseline/1/256",
+  "network_model_requests": 0,
+  "dsh_installed_path": "G:\\Python\\Python\\Py_project\\DS_Friend\\.runtime\\node_modules",
+  "steps": [],
+  "pytest": "8.4.2",
+  "dsh_packages": {
+    "dsh-compaction-basic": {
+      "version": "0.2.0-rc.2",
+      "sha256": "b7ac52f20a36430cf01a66b3a36f23a48ffdb22708d714dbe1fff541b5df4ec5"
+    },
+    "dsh-compaction": {
+      "version": "0.2.0-rc.2",
+      "sha256": "6ec67e516116e64da69cda58d6b182b22b51c5dc21c7e7615becdf59479a27ae"
+    },
+    "cordis": {
+      "version": "4.0.5",
+      "sha256": "6a9394c0877ff45218818c6e815edd038f8057e1a1deb390a8d43ec81c57691e"
+    }
+  },
+  "success": false,
+  "recorder_failure": "UnicodeEncodeError",
+  "retrospective_note": "Python 40 passed and Node output was saved; recorder failed while printing Unicode checkmarks to Windows GBK stdout. Node exit code and exact finish timestamp were not persisted. Do not treat as a completed successful recorder run."
+}

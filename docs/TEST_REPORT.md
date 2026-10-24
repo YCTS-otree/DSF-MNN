@@ -21,6 +21,10 @@
 
 初次执行遇到 Windows 默认 pytest 临时目录访问失败，改用项目独立测试目录；开发中修复了 edge SQL 列数、Windows fsync 模式与 SQLite 连接未关闭问题。早期完整日志缺失已在 retrospective provenance 中明确标注；后续记录器保留所有运行，包括失败。
 
+完整记录器实测：`20261024T132006+0800-62f4c67863`，Python **40 passed**，Node **5 passed / 0 skipped**。前一次 `20261024T131935+0800-ad043dfdbc` 的测试输出已保存，但记录器在 GBK 控制台打印 Unicode 时失败，保留为 recorder_failure，不计作成功记录；已修复 UTF-8 输出。
+
+增加“旧 prepared 收据重试仍须验证当前向量和 FTS 可用”的回归后，`20261024T132204+0800-9245f92d0d` 为 **41 Python passed + 5 Node passed / 0 skipped**，源码快照、原始日志和 JUnit 完整保存。最新完整规模记录为 `20261024T132038+0800-d61aba89f9`，包含每个 query 的 latency/operations/seeds/path/evidence 原始 JSON 与合成数据库；排名与早期两组一致，10k 写入 1336.6 条/s，PPR median 232.07 ms。该规模运行的源码快照早于上述 compaction 回归，不混称为同一 source tree。
+
 ## 规模与算法消融
 
 语料：每规模 8 query，4 个精确事实、4 个有方向二跳。Embedding=`lexical-hash-baseline/1/256`，不含神经语义；k=5，固定生成器，无随机抽样。这是 smoke benchmark，样本量不足以支持论文效果结论。
@@ -54,3 +58,5 @@
 本轮 LLM 提取/链接/Dreaming/Self Reflection 请求、API Embedding 请求与模型 Token 均为 0；检索/向量处理量有独立计数。上下文节省 Token 尚无真实 DSH Token Meter 实测，记录为 null，不将字节数冒充 Token 节省。
 
 尚未运行神经语义模型、HNSW、LongMemEval/LoCoMo、DSH 原生 A–F、实际压力/overflow/取消/持久化故障注入、Linux 主机、真实跨日持续运行。上述项目不计入通过。
+
+分发验证：`release-20261024T132259-49ba45f15e` 从 `Release/v1.0.0/DSF-MNN-v1.0.0-research-source.zip` 解压运行 status/ingest/search/backup，核对 demo-1 原始证据可召回。SHA256=`3f8e56d489adabb04da86c11d419a39609f6f89b71338d36f6578530f0948fe2`。该目录为已生成的独立研究快照，后续维护脚本改动不会覆盖它；每份快照以自己的 manifest 为准。

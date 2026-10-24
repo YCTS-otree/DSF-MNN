@@ -3,6 +3,7 @@ import pytest
 from dsf_mnn import Event, MemoryStore, Scope
 from dsf_mnn.compaction import CognitiveCompaction
 from dsf_mnn.formation import Formation
+from dsf_mnn.embedding import HashEmbedding
 from dsf_mnn.model import MemoryError
 from dsf_mnn.tools import MemoryTools
 
@@ -33,3 +34,15 @@ def test_recent_tail_extends_to_complete_tool_pair(tmp_path):
         events = [raw(1, "tool_call", "c"), raw(2, "tool_result", "c"), raw(3, "assistant")]
         prepared = CognitiveCompaction(store).prepare(S, events, recent_count=2)
         assert [e["id"] for e in prepared["checkpoint"]["recent_events"]] == ["1", "2", "3"]
+
+
+def test_prepared_retry_rechecks_index_before_dsh_commit(tmp_path):
+    with MemoryStore(tmp_path / "retry.sqlite") as store:
+        event = Event("e", 1, "critical", "2026-10-24T01:00:00Z", "tool_verified", "synthetic://1")
+        compaction = CognitiveCompaction(store)
+        compaction.prepare(S, [event])
+        store.rebuild_index(S, HashEmbedding(128))
+        with pytest.raises(MemoryError, match="checkpoint-index-unavailable"):
+            compaction.prepare(S, [event])
+        store.rebuild_index(S, HashEmbedding())
+        assert compaction.prepare(S, [event])["state"] == "prepared"

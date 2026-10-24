@@ -1,0 +1,4 @@
+{"size": 100, "items_per_second": 1681.7, "strategies": {"vector": {"recall@5": 0.5, "median_ms": 1.82}, "hybrid": {"recall@5": 0.5, "median_ms": 2.18}, "bfs": {"recall@5": 0.875, "median_ms": 2.2}, "ppr": {"recall@5": 1.0, "median_ms": 2.35}}}
+{"size": 1000, "items_per_second": 1322.3, "strategies": {"vector": {"recall@5": 0.5, "median_ms": 16.94}, "hybrid": {"recall@5": 0.5, "median_ms": 18.37}, "bfs": {"recall@5": 0.625, "median_ms": 23.79}, "ppr": {"recall@5": 0.625, "median_ms": 19.3}}}
+{"size": 10000, "items_per_second": 1336.6, "strategies": {"vector": {"recall@5": 0.125, "median_ms": 194.27}, "hybrid": {"recall@5": 0.5, "median_ms": 226.12}, "bfs": {"recall@5": 0.5, "median_ms": 230.31}, "ppr": {"recall@5": 0.5, "median_ms": 232.07}}}
+G:\Python\Python\Py_project\DSF_MNN\experiments\20261024T132038+0800-d61aba89f9\results.json

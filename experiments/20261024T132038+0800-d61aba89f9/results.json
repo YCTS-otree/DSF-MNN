@@ -1,0 +1,1831 @@
+{
+  "schema": "dsf-mnn-benchmark/1",
+  "version": "1.0.0",
+  "recorded_at_utc": "2026-10-24T05:21:00.638833+00:00",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "python": "3.10.11",
+  "embedding": "lexical-hash-baseline/1/256",
+  "corpus": "synthetic-v1 (8 queries/size; 4 factual + 4 directed two-hop)",
+  "seed": "deterministic, no randomness",
+  "clock": {
+    "name": "perf_counter",
+    "resolution_seconds": 1e-07
+  },
+  "cost": {
+    "llm_requests": 0,
+    "embedding_api_requests": 0,
+    "graph_linking_llm_requests": 0,
+    "dreaming_llm_requests": 0,
+    "self_reflection_llm_requests": 0,
+    "model_tokens": 0,
+    "context_token_saving": null
+  },
+  "results": [
+    {
+      "size": 100,
+      "indexing_seconds": 0.05946279998170212,
+      "indexing_items_per_second": 1681.7237000405628,
+      "incremental_ms": 2.327799971681088,
+      "dreaming_bounded_batch_ms": 43.77889999886975,
+      "rebuild_ms": 22.045899997465312,
+      "backup_ms": 14.020100003108382,
+      "backup_reopen_recall": true,
+      "database_bytes": 770048,
+      "vector_bytes": 103424,
+      "nodes": 101,
+      "edges": 66,
+      "strategies": {
+        "vector": {
+          "recall_at_5": 0.5,
+          "mrr_at_5": 0.5,
+          "ndcg_at_5": 0.5,
+          "evidence_precision_at_5": 0.1,
+          "latency_ms_median": 1.8197000317741185,
+          "latency_ms_p95": 3.8813999854028225,
+          "queries": 8,
+          "truncated_queries": 0,
+          "details": [
+            {
+              "query": "case00020",
+              "gold": "n20",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n20"
+              ],
+              "latency_ms": 3.8813999854028225,
+              "operations": 25600,
+              "truncated": null,
+              "visited": 1,
+              "raw_result_file": "scale-100-vector-q0.json"
+            },
+            {
+              "query": "case00041",
+              "gold": "n41",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n41"
+              ],
+              "latency_ms": 1.816700038034469,
+              "operations": 25600,
+              "truncated": null,
+              "visited": 1,
+              "raw_result_file": "scale-100-vector-q1.json"
+            },
+            {
+              "query": "case00062",
+              "gold": "n62",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n62",
+                "n80"
+              ],
+              "latency_ms": 1.8304999684914947,
+              "operations": 25600,
+              "truncated": null,
+              "visited": 2,
+              "raw_result_file": "scale-100-vector-q2.json"
+            },
+            {
+              "query": "case00083",
+              "gold": "n83",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n83"
+              ],
+              "latency_ms": 1.6240000259131193,
+              "operations": 25600,
+              "truncated": null,
+              "visited": 1,
+              "raw_result_file": "scale-100-vector-q3.json"
+            },
+            {
+              "query": "trigger00000",
+              "gold": "n2",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n0"
+              ],
+              "latency_ms": 1.7285999492742121,
+              "operations": 25600,
+              "truncated": null,
+              "visited": 1,
+              "raw_result_file": "scale-100-vector-q4.json"
+            },
+            {
+              "query": "trigger00003",
+              "gold": "n5",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n3",
+                "n39",
+                "n70"
+              ],
+              "latency_ms": 2.236099971923977,
+              "operations": 25600,
+              "truncated": null,
+              "visited": 3,
+              "raw_result_file": "scale-100-vector-q5.json"
+            },
+            {
+              "query": "trigger00006",
+              "gold": "n8",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n6",
+                "n44"
+              ],
+              "latency_ms": 1.8227000255137682,
+              "operations": 25600,
+              "truncated": null,
+              "visited": 2,
+              "raw_result_file": "scale-100-vector-q6.json"
+            },
+            {
+              "query": "trigger00009",
+              "gold": "n11",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n9",
+                "n54"
+              ],
+              "latency_ms": 1.7623999738134444,
+              "operations": 25600,
+              "truncated": null,
+              "visited": 2,
+              "raw_result_file": "scale-100-vector-q7.json"
+            }
+          ]
+        },
+        "hybrid": {
+          "recall_at_5": 0.5,
+          "mrr_at_5": 0.5,
+          "ndcg_at_5": 0.5,
+          "evidence_precision_at_5": 0.1,
+          "latency_ms_median": 2.1789000020362437,
+          "latency_ms_p95": 2.4600999895483255,
+          "queries": 8,
+          "truncated_queries": 0,
+          "details": [
+            {
+              "query": "case00020",
+              "gold": "n20",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n20"
+              ],
+              "latency_ms": 2.3093000054359436,
+              "operations": 25660,
+              "truncated": null,
+              "visited": 1,
+              "raw_result_file": "scale-100-hybrid-q0.json"
+            },
+            {
+              "query": "case00041",
+              "gold": "n41",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n41"
+              ],
+              "latency_ms": 2.4600999895483255,
+              "operations": 25660,
+              "truncated": null,
+              "visited": 1,
+              "raw_result_file": "scale-100-hybrid-q1.json"
+            },
+            {
+              "query": "case00062",
+              "gold": "n62",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n62",
+                "n80"
+              ],
+              "latency_ms": 2.087300003040582,
+              "operations": 25659,
+              "truncated": null,
+              "visited": 2,
+              "raw_result_file": "scale-100-hybrid-q2.json"
+            },
+            {
+              "query": "case00083",
+              "gold": "n83",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n83"
+              ],
+              "latency_ms": 1.9475999870337546,
+              "operations": 25660,
+              "truncated": null,
+              "visited": 1,
+              "raw_result_file": "scale-100-hybrid-q3.json"
+            },
+            {
+              "query": "trigger00000",
+              "gold": "n2",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n0"
+              ],
+              "latency_ms": 2.2705000010319054,
+              "operations": 25614,
+              "truncated": null,
+              "visited": 1,
+              "raw_result_file": "scale-100-hybrid-q4.json"
+            },
+            {
+              "query": "trigger00003",
+              "gold": "n5",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n3",
+                "n39",
+                "n70"
+              ],
+              "latency_ms": 2.333700016606599,
+              "operations": 25614,
+              "truncated": null,
+              "visited": 3,
+              "raw_result_file": "scale-100-hybrid-q5.json"
+            },
+            {
+              "query": "trigger00006",
+              "gold": "n8",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n6",
+                "n44"
+              ],
+              "latency_ms": 1.922000024933368,
+              "operations": 25614,
+              "truncated": null,
+              "visited": 2,
+              "raw_result_file": "scale-100-hybrid-q6.json"
+            },
+            {
+              "query": "trigger00009",
+              "gold": "n11",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n9",
+                "n54"
+              ],
+              "latency_ms": 1.8641000497154891,
+              "operations": 25614,
+              "truncated": null,
+              "visited": 2,
+              "raw_result_file": "scale-100-hybrid-q7.json"
+            }
+          ]
+        },
+        "bfs": {
+          "recall_at_5": 0.875,
+          "mrr_at_5": 0.5979166666666667,
+          "ndcg_at_5": 0.6646911706634918,
+          "evidence_precision_at_5": 0.17500000000000002,
+          "latency_ms_median": 2.199150010710582,
+          "latency_ms_p95": 2.5495000299997628,
+          "queries": 8,
+          "truncated_queries": 0,
+          "details": [
+            {
+              "query": "case00020",
+              "gold": "n20",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n20"
+              ],
+              "latency_ms": 2.1293999743647873,
+              "operations": 25660,
+              "truncated": null,
+              "visited": 1,
+              "raw_result_file": "scale-100-bfs-q0.json"
+            },
+            {
+              "query": "case00041",
+              "gold": "n41",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n41"
+              ],
+              "latency_ms": 2.5495000299997628,
+              "operations": 25660,
+              "truncated": null,
+              "visited": 1,
+              "raw_result_file": "scale-100-bfs-q1.json"
+            },
+            {
+              "query": "case00062",
+              "gold": "n62",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n62",
+                "n80"
+              ],
+              "latency_ms": 2.200899994932115,
+              "operations": 25659,
+              "truncated": null,
+              "visited": 2,
+              "raw_result_file": "scale-100-bfs-q2.json"
+            },
+            {
+              "query": "case00083",
+              "gold": "n83",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n83"
+              ],
+              "latency_ms": 1.9617999787442386,
+              "operations": 25660,
+              "truncated": null,
+              "visited": 1,
+              "raw_result_file": "scale-100-bfs-q3.json"
+            },
+            {
+              "query": "trigger00000",
+              "gold": "n2",
+              "category": "multihop",
+              "rank_at_5": 3,
+              "retrieved": [
+                "n0",
+                "n1",
+                "n2"
+              ],
+              "latency_ms": 2.5417000288143754,
+              "operations": 25616,
+              "truncated": null,
+              "visited": 3,
+              "raw_result_file": "scale-100-bfs-q4.json"
+            },
+            {
+              "query": "trigger00003",
+              "gold": "n5",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n3",
+                "n39",
+                "n70",
+                "n4",
+                "n40"
+              ],
+              "latency_ms": 2.449300023727119,
+              "operations": 25619,
+              "truncated": null,
+              "visited": 8,
+              "raw_result_file": "scale-100-bfs-q5.json"
+            },
+            {
+              "query": "trigger00006",
+              "gold": "n8",
+              "category": "multihop",
+              "rank_at_5": 4,
+              "retrieved": [
+                "n6",
+                "n44",
+                "n7",
+                "n8"
+              ],
+              "latency_ms": 2.1240999922156334,
+              "operations": 25616,
+              "truncated": null,
+              "visited": 4,
+              "raw_result_file": "scale-100-bfs-q6.json"
+            },
+            {
+              "query": "trigger00009",
+              "gold": "n11",
+              "category": "multihop",
+              "rank_at_5": 5,
+              "retrieved": [
+                "n9",
+                "n54",
+                "n10",
+                "n55",
+                "n11"
+              ],
+              "latency_ms": 2.197400026489049,
+              "operations": 25618,
+              "truncated": null,
+              "visited": 6,
+              "raw_result_file": "scale-100-bfs-q7.json"
+            }
+          ]
+        },
+        "ppr": {
+          "recall_at_5": 1.0,
+          "mrr_at_5": 0.6291666666666667,
+          "ndcg_at_5": 0.7185257404226659,
+          "evidence_precision_at_5": 0.2,
+          "latency_ms_median": 2.345649991184473,
+          "latency_ms_p95": 2.654900017660111,
+          "queries": 8,
+          "truncated_queries": 0,
+          "details": [
+            {
+              "query": "case00020",
+              "gold": "n20",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n20"
+              ],
+              "latency_ms": 2.654900017660111,
+              "operations": 25660,
+              "truncated": null,
+              "visited": 1,
+              "raw_result_file": "scale-100-ppr-q0.json"
+            },
+            {
+              "query": "case00041",
+              "gold": "n41",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n41"
+              ],
+              "latency_ms": 2.177300048060715,
+              "operations": 25660,
+              "truncated": null,
+              "visited": 1,
+              "raw_result_file": "scale-100-ppr-q1.json"
+            },
+            {
+              "query": "case00062",
+              "gold": "n62",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n62",
+                "n80"
+              ],
+              "latency_ms": 2.024299988988787,
+              "operations": 25659,
+              "truncated": null,
+              "visited": 2,
+              "raw_result_file": "scale-100-ppr-q2.json"
+            },
+            {
+              "query": "case00083",
+              "gold": "n83",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n83"
+              ],
+              "latency_ms": 2.0905000274069607,
+              "operations": 25660,
+              "truncated": null,
+              "visited": 1,
+              "raw_result_file": "scale-100-ppr-q3.json"
+            },
+            {
+              "query": "trigger00000",
+              "gold": "n2",
+              "category": "multihop",
+              "rank_at_5": 3,
+              "retrieved": [
+                "n0",
+                "n1",
+                "n2"
+              ],
+              "latency_ms": 2.4494999670423567,
+              "operations": 25676,
+              "truncated": null,
+              "visited": 3,
+              "raw_result_file": "scale-100-ppr-q4.json"
+            },
+            {
+              "query": "trigger00003",
+              "gold": "n5",
+              "category": "multihop",
+              "rank_at_5": 5,
+              "retrieved": [
+                "n3",
+                "n4",
+                "n39",
+                "n70",
+                "n5"
+              ],
+              "latency_ms": 2.5378999998793006,
+              "operations": 25769,
+              "truncated": null,
+              "visited": 8,
+              "raw_result_file": "scale-100-ppr-q5.json"
+            },
+            {
+              "query": "trigger00006",
+              "gold": "n8",
+              "category": "multihop",
+              "rank_at_5": 4,
+              "retrieved": [
+                "n6",
+                "n7",
+                "n44",
+                "n8"
+              ],
+              "latency_ms": 2.2418000153265893,
+              "operations": 25676,
+              "truncated": null,
+              "visited": 4,
+              "raw_result_file": "scale-100-ppr-q6.json"
+            },
+            {
+              "query": "trigger00009",
+              "gold": "n11",
+              "category": "multihop",
+              "rank_at_5": 4,
+              "retrieved": [
+                "n9",
+                "n10",
+                "n54",
+                "n11",
+                "n55"
+              ],
+              "latency_ms": 2.5466999504715204,
+              "operations": 25738,
+              "truncated": null,
+              "visited": 6,
+              "raw_result_file": "scale-100-ppr-q7.json"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "size": 1000,
+      "indexing_seconds": 0.756234799977392,
+      "indexing_items_per_second": 1322.340627580079,
+      "incremental_ms": 4.070599970873445,
+      "dreaming_bounded_batch_ms": 114.63039997033775,
+      "rebuild_ms": 301.84379999991506,
+      "backup_ms": 52.71290004020557,
+      "backup_reopen_recall": true,
+      "database_bytes": 5365760,
+      "vector_bytes": 1025024,
+      "nodes": 1001,
+      "edges": 666,
+      "strategies": {
+        "vector": {
+          "recall_at_5": 0.5,
+          "mrr_at_5": 0.4375,
+          "ndcg_at_5": 0.4538662191964322,
+          "evidence_precision_at_5": 0.1,
+          "latency_ms_median": 16.938899992965162,
+          "latency_ms_p95": 41.92450002301484,
+          "queries": 8,
+          "truncated_queries": 0,
+          "details": [
+            {
+              "query": "case00020",
+              "gold": "n20",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n20",
+                "n461",
+                "n264"
+              ],
+              "latency_ms": 41.92450002301484,
+              "operations": 256000,
+              "truncated": null,
+              "visited": 3,
+              "raw_result_file": "scale-1000-vector-q0.json"
+            },
+            {
+              "query": "case00041",
+              "gold": "n41",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n41",
+                "n720"
+              ],
+              "latency_ms": 21.960899990517646,
+              "operations": 256000,
+              "truncated": null,
+              "visited": 2,
+              "raw_result_file": "scale-1000-vector-q1.json"
+            },
+            {
+              "query": "case00062",
+              "gold": "n62",
+              "category": "factual",
+              "rank_at_5": 2,
+              "retrieved": [
+                "n329",
+                "n62",
+                "n716",
+                "n80"
+              ],
+              "latency_ms": 16.48569997632876,
+              "operations": 256000,
+              "truncated": null,
+              "visited": 4,
+              "raw_result_file": "scale-1000-vector-q2.json"
+            },
+            {
+              "query": "case00083",
+              "gold": "n83",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n83",
+                "n421"
+              ],
+              "latency_ms": 16.497300006449223,
+              "operations": 256000,
+              "truncated": null,
+              "visited": 2,
+              "raw_result_file": "scale-1000-vector-q3.json"
+            },
+            {
+              "query": "trigger00000",
+              "gold": "n2",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n0",
+                "n847"
+              ],
+              "latency_ms": 17.90079998318106,
+              "operations": 256000,
+              "truncated": null,
+              "visited": 2,
+              "raw_result_file": "scale-1000-vector-q4.json"
+            },
+            {
+              "query": "trigger00003",
+              "gold": "n5",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n3",
+                "n597",
+                "n101",
+                "n132",
+                "n163"
+              ],
+              "latency_ms": 16.663099988363683,
+              "operations": 256000,
+              "truncated": null,
+              "visited": 8,
+              "raw_result_file": "scale-1000-vector-q5.json"
+            },
+            {
+              "query": "trigger00006",
+              "gold": "n8",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n6",
+                "n251",
+                "n329",
+                "n44",
+                "n444"
+              ],
+              "latency_ms": 17.21469999756664,
+              "operations": 256000,
+              "truncated": null,
+              "visited": 8,
+              "raw_result_file": "scale-1000-vector-q6.json"
+            },
+            {
+              "query": "trigger00009",
+              "gold": "n11",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n9",
+                "n597",
+                "n906",
+                "n54",
+                "n826"
+              ],
+              "latency_ms": 16.365500050596893,
+              "operations": 256000,
+              "truncated": null,
+              "visited": 6,
+              "raw_result_file": "scale-1000-vector-q7.json"
+            }
+          ]
+        },
+        "hybrid": {
+          "recall_at_5": 0.5,
+          "mrr_at_5": 0.5,
+          "ndcg_at_5": 0.5,
+          "evidence_precision_at_5": 0.1,
+          "latency_ms_median": 18.369249999523163,
+          "latency_ms_p95": 26.850300026126206,
+          "queries": 8,
+          "truncated_queries": 0,
+          "details": [
+            {
+              "query": "case00020",
+              "gold": "n20",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n20",
+                "n461",
+                "n264"
+              ],
+              "latency_ms": 20.688800024800003,
+              "operations": 256060,
+              "truncated": null,
+              "visited": 3,
+              "raw_result_file": "scale-1000-hybrid-q0.json"
+            },
+            {
+              "query": "case00041",
+              "gold": "n41",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n41",
+                "n720"
+              ],
+              "latency_ms": 19.873300043400377,
+              "operations": 256060,
+              "truncated": null,
+              "visited": 2,
+              "raw_result_file": "scale-1000-hybrid-q1.json"
+            },
+            {
+              "query": "case00062",
+              "gold": "n62",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n62",
+                "n329",
+                "n716",
+                "n80"
+              ],
+              "latency_ms": 18.2679999852553,
+              "operations": 256059,
+              "truncated": null,
+              "visited": 4,
+              "raw_result_file": "scale-1000-hybrid-q2.json"
+            },
+            {
+              "query": "case00083",
+              "gold": "n83",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n83",
+                "n421"
+              ],
+              "latency_ms": 26.850300026126206,
+              "operations": 256060,
+              "truncated": null,
+              "visited": 2,
+              "raw_result_file": "scale-1000-hybrid-q3.json"
+            },
+            {
+              "query": "trigger00000",
+              "gold": "n2",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n0",
+                "n847"
+              ],
+              "latency_ms": 17.45769998524338,
+              "operations": 256014,
+              "truncated": null,
+              "visited": 2,
+              "raw_result_file": "scale-1000-hybrid-q4.json"
+            },
+            {
+              "query": "trigger00003",
+              "gold": "n5",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n3",
+                "n597",
+                "n101",
+                "n132",
+                "n163"
+              ],
+              "latency_ms": 18.470500013791025,
+              "operations": 256014,
+              "truncated": null,
+              "visited": 8,
+              "raw_result_file": "scale-1000-hybrid-q5.json"
+            },
+            {
+              "query": "trigger00006",
+              "gold": "n8",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n6",
+                "n251",
+                "n329",
+                "n44",
+                "n444"
+              ],
+              "latency_ms": 17.197600041981786,
+              "operations": 256014,
+              "truncated": null,
+              "visited": 8,
+              "raw_result_file": "scale-1000-hybrid-q6.json"
+            },
+            {
+              "query": "trigger00009",
+              "gold": "n11",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n9",
+                "n597",
+                "n906",
+                "n54",
+                "n826"
+              ],
+              "latency_ms": 16.714500030502677,
+              "operations": 256014,
+              "truncated": null,
+              "visited": 6,
+              "raw_result_file": "scale-1000-hybrid-q7.json"
+            }
+          ]
+        },
+        "bfs": {
+          "recall_at_5": 0.625,
+          "mrr_at_5": 0.525,
+          "ndcg_at_5": 0.5483566009043177,
+          "evidence_precision_at_5": 0.125,
+          "latency_ms_median": 23.786400008248165,
+          "latency_ms_p95": 27.83779997844249,
+          "queries": 8,
+          "truncated_queries": 0,
+          "details": [
+            {
+              "query": "case00020",
+              "gold": "n20",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n20",
+                "n461",
+                "n264",
+                "n265",
+                "n266"
+              ],
+              "latency_ms": 17.832099983934313,
+              "operations": 256062,
+              "truncated": null,
+              "visited": 5,
+              "raw_result_file": "scale-1000-bfs-q0.json"
+            },
+            {
+              "query": "case00041",
+              "gold": "n41",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n41",
+                "n720",
+                "n721",
+                "n722"
+              ],
+              "latency_ms": 17.58360001258552,
+              "operations": 256062,
+              "truncated": null,
+              "visited": 4,
+              "raw_result_file": "scale-1000-bfs-q1.json"
+            },
+            {
+              "query": "case00062",
+              "gold": "n62",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n62",
+                "n329",
+                "n716",
+                "n80"
+              ],
+              "latency_ms": 19.45799996610731,
+              "operations": 256059,
+              "truncated": null,
+              "visited": 4,
+              "raw_result_file": "scale-1000-bfs-q2.json"
+            },
+            {
+              "query": "case00083",
+              "gold": "n83",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n83",
+                "n421",
+                "n422"
+              ],
+              "latency_ms": 24.631200009025633,
+              "operations": 256061,
+              "truncated": null,
+              "visited": 3,
+              "raw_result_file": "scale-1000-bfs-q3.json"
+            },
+            {
+              "query": "trigger00000",
+              "gold": "n2",
+              "category": "multihop",
+              "rank_at_5": 5,
+              "retrieved": [
+                "n0",
+                "n847",
+                "n1",
+                "n848",
+                "n2"
+              ],
+              "latency_ms": 27.83779997844249,
+              "operations": 256017,
+              "truncated": null,
+              "visited": 5,
+              "raw_result_file": "scale-1000-bfs-q4.json"
+            },
+            {
+              "query": "trigger00003",
+              "gold": "n5",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n3",
+                "n597",
+                "n101",
+                "n132",
+                "n163"
+              ],
+              "latency_ms": 26.285499974619597,
+              "operations": 256025,
+              "truncated": null,
+              "visited": 19,
+              "raw_result_file": "scale-1000-bfs-q5.json"
+            },
+            {
+              "query": "trigger00006",
+              "gold": "n8",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n6",
+                "n251",
+                "n329",
+                "n44",
+                "n444"
+              ],
+              "latency_ms": 24.66890000505373,
+              "operations": 256022,
+              "truncated": null,
+              "visited": 16,
+              "raw_result_file": "scale-1000-bfs-q6.json"
+            },
+            {
+              "query": "trigger00009",
+              "gold": "n11",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n9",
+                "n597",
+                "n906",
+                "n54",
+                "n826"
+              ],
+              "latency_ms": 22.941600007470697,
+              "operations": 256024,
+              "truncated": null,
+              "visited": 16,
+              "raw_result_file": "scale-1000-bfs-q7.json"
+            }
+          ]
+        },
+        "ppr": {
+          "recall_at_5": 0.625,
+          "mrr_at_5": 0.53125,
+          "ndcg_at_5": 0.5538345697591741,
+          "evidence_precision_at_5": 0.125,
+          "latency_ms_median": 19.2959500127472,
+          "latency_ms_p95": 24.874099995940924,
+          "queries": 8,
+          "truncated_queries": 0,
+          "details": [
+            {
+              "query": "case00020",
+              "gold": "n20",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n20",
+                "n461",
+                "n264",
+                "n265",
+                "n266"
+              ],
+              "latency_ms": 19.358400022611022,
+              "operations": 256096,
+              "truncated": null,
+              "visited": 5,
+              "raw_result_file": "scale-1000-ppr-q0.json"
+            },
+            {
+              "query": "case00041",
+              "gold": "n41",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n41",
+                "n720",
+                "n721",
+                "n722"
+              ],
+              "latency_ms": 18.484900007024407,
+              "operations": 256102,
+              "truncated": null,
+              "visited": 4,
+              "raw_result_file": "scale-1000-ppr-q1.json"
+            },
+            {
+              "query": "case00062",
+              "gold": "n62",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n62",
+                "n329",
+                "n716",
+                "n80"
+              ],
+              "latency_ms": 19.13920004153624,
+              "operations": 256059,
+              "truncated": null,
+              "visited": 4,
+              "raw_result_file": "scale-1000-ppr-q2.json"
+            },
+            {
+              "query": "case00083",
+              "gold": "n83",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n83",
+                "n421",
+                "n422"
+              ],
+              "latency_ms": 17.63580000260845,
+              "operations": 256074,
+              "truncated": null,
+              "visited": 3,
+              "raw_result_file": "scale-1000-ppr-q3.json"
+            },
+            {
+              "query": "trigger00000",
+              "gold": "n2",
+              "category": "multihop",
+              "rank_at_5": 4,
+              "retrieved": [
+                "n0",
+                "n1",
+                "n847",
+                "n2",
+                "n848"
+              ],
+              "latency_ms": 19.330200040712953,
+              "operations": 256107,
+              "truncated": null,
+              "visited": 5,
+              "raw_result_file": "scale-1000-ppr-q4.json"
+            },
+            {
+              "query": "trigger00003",
+              "gold": "n5",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n3",
+                "n4",
+                "n597",
+                "n101",
+                "n132"
+              ],
+              "latency_ms": 21.073700045235455,
+              "operations": 256355,
+              "truncated": null,
+              "visited": 19,
+              "raw_result_file": "scale-1000-ppr-q5.json"
+            },
+            {
+              "query": "trigger00006",
+              "gold": "n8",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n6",
+                "n7",
+                "n251",
+                "n329",
+                "n44"
+              ],
+              "latency_ms": 24.874099995940924,
+              "operations": 256238,
+              "truncated": null,
+              "visited": 16,
+              "raw_result_file": "scale-1000-ppr-q6.json"
+            },
+            {
+              "query": "trigger00009",
+              "gold": "n11",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n9",
+                "n10",
+                "n597",
+                "n906",
+                "n54"
+              ],
+              "latency_ms": 19.261699984781444,
+              "operations": 256324,
+              "truncated": null,
+              "visited": 16,
+              "raw_result_file": "scale-1000-ppr-q7.json"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "size": 10000,
+      "indexing_seconds": 7.481487999961246,
+      "indexing_items_per_second": 1336.6324987825683,
+      "incremental_ms": 25.174799957312644,
+      "dreaming_bounded_batch_ms": 880.2107999799773,
+      "rebuild_ms": 2977.8320000041276,
+      "backup_ms": 323.71120003517717,
+      "backup_reopen_recall": true,
+      "database_bytes": 50384896,
+      "vector_bytes": 10241024,
+      "nodes": 10001,
+      "edges": 6666,
+      "strategies": {
+        "vector": {
+          "recall_at_5": 0.125,
+          "mrr_at_5": 0.0625,
+          "ndcg_at_5": 0.07886621919643219,
+          "evidence_precision_at_5": 0.025,
+          "latency_ms_median": 194.26970000495203,
+          "latency_ms_p95": 482.5507999630645,
+          "queries": 8,
+          "truncated_queries": 0,
+          "details": [
+            {
+              "query": "case00020",
+              "gold": "n20",
+              "category": "factual",
+              "rank_at_5": null,
+              "retrieved": [
+                "n1815",
+                "n4884",
+                "n5659",
+                "n1270",
+                "n1358"
+              ],
+              "latency_ms": 482.5507999630645,
+              "operations": 2560000,
+              "truncated": null,
+              "visited": 8,
+              "raw_result_file": "scale-10000-vector-q0.json"
+            },
+            {
+              "query": "case00041",
+              "gold": "n41",
+              "category": "factual",
+              "rank_at_5": null,
+              "retrieved": [
+                "n4822",
+                "n1628",
+                "n2492",
+                "n2935",
+                "n3430"
+              ],
+              "latency_ms": 183.60109999775887,
+              "operations": 2560000,
+              "truncated": null,
+              "visited": 8,
+              "raw_result_file": "scale-10000-vector-q1.json"
+            },
+            {
+              "query": "case00062",
+              "gold": "n62",
+              "category": "factual",
+              "rank_at_5": null,
+              "retrieved": [
+                "n9162",
+                "n1136",
+                "n1588",
+                "n1688",
+                "n1913"
+              ],
+              "latency_ms": 173.494299990125,
+              "operations": 2560000,
+              "truncated": null,
+              "visited": 8,
+              "raw_result_file": "scale-10000-vector-q2.json"
+            },
+            {
+              "query": "case00083",
+              "gold": "n83",
+              "category": "factual",
+              "rank_at_5": 2,
+              "retrieved": [
+                "n5039",
+                "n83",
+                "n1016",
+                "n1364",
+                "n1543"
+              ],
+              "latency_ms": 213.51859997957945,
+              "operations": 2560000,
+              "truncated": null,
+              "visited": 8,
+              "raw_result_file": "scale-10000-vector-q3.json"
+            },
+            {
+              "query": "trigger00000",
+              "gold": "n2",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n0",
+                "n2242",
+                "n3303",
+                "n7206",
+                "n8790"
+              ],
+              "latency_ms": 171.22809996362776,
+              "operations": 2560000,
+              "truncated": null,
+              "visited": 8,
+              "raw_result_file": "scale-10000-vector-q4.json"
+            },
+            {
+              "query": "trigger00003",
+              "gold": "n5",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n3",
+                "n2023",
+                "n5309",
+                "n1589",
+                "n9029"
+              ],
+              "latency_ms": 204.9383000121452,
+              "operations": 2560000,
+              "truncated": null,
+              "visited": 8,
+              "raw_result_file": "scale-10000-vector-q5.json"
+            },
+            {
+              "query": "trigger00006",
+              "gold": "n8",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n6",
+                "n1771",
+                "n1276",
+                "n1370",
+                "n2299"
+              ],
+              "latency_ms": 169.30510004749522,
+              "operations": 2560000,
+              "truncated": null,
+              "visited": 8,
+              "raw_result_file": "scale-10000-vector-q6.json"
+            },
+            {
+              "query": "trigger00009",
+              "gold": "n11",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n9",
+                "n2280",
+                "n597",
+                "n906",
+                "n1015"
+              ],
+              "latency_ms": 217.77769998880103,
+              "operations": 2560000,
+              "truncated": null,
+              "visited": 8,
+              "raw_result_file": "scale-10000-vector-q7.json"
+            }
+          ]
+        },
+        "hybrid": {
+          "recall_at_5": 0.5,
+          "mrr_at_5": 0.5,
+          "ndcg_at_5": 0.5,
+          "evidence_precision_at_5": 0.1,
+          "latency_ms_median": 226.11610000603832,
+          "latency_ms_p95": 243.73590003233403,
+          "queries": 8,
+          "truncated_queries": 0,
+          "details": [
+            {
+              "query": "case00020",
+              "gold": "n20",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n20",
+                "n1815",
+                "n4884",
+                "n5659",
+                "n1270"
+              ],
+              "latency_ms": 191.51059997966513,
+              "operations": 2560060,
+              "truncated": null,
+              "visited": 8,
+              "raw_result_file": "scale-10000-hybrid-q0.json"
+            },
+            {
+              "query": "case00041",
+              "gold": "n41",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n41",
+                "n4822",
+                "n1628",
+                "n2492",
+                "n2935"
+              ],
+              "latency_ms": 240.9749999642372,
+              "operations": 2560060,
+              "truncated": null,
+              "visited": 8,
+              "raw_result_file": "scale-10000-hybrid-q1.json"
+            },
+            {
+              "query": "case00062",
+              "gold": "n62",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n62",
+                "n9162",
+                "n1136",
+                "n1588",
+                "n1688"
+              ],
+              "latency_ms": 187.9320999723859,
+              "operations": 2560059,
+              "truncated": null,
+              "visited": 8,
+              "raw_result_file": "scale-10000-hybrid-q2.json"
+            },
+            {
+              "query": "case00083",
+              "gold": "n83",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n83",
+                "n5039",
+                "n1016",
+                "n1364",
+                "n1543"
+              ],
+              "latency_ms": 228.32160000689328,
+              "operations": 2560060,
+              "truncated": null,
+              "visited": 8,
+              "raw_result_file": "scale-10000-hybrid-q3.json"
+            },
+            {
+              "query": "trigger00000",
+              "gold": "n2",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n0",
+                "n2242",
+                "n3303",
+                "n7206",
+                "n8790"
+              ],
+              "latency_ms": 243.73590003233403,
+              "operations": 2560014,
+              "truncated": null,
+              "visited": 8,
+              "raw_result_file": "scale-10000-hybrid-q4.json"
+            },
+            {
+              "query": "trigger00003",
+              "gold": "n5",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n3",
+                "n2023",
+                "n5309",
+                "n1589",
+                "n9029"
+              ],
+              "latency_ms": 191.54870003694668,
+              "operations": 2560014,
+              "truncated": null,
+              "visited": 8,
+              "raw_result_file": "scale-10000-hybrid-q5.json"
+            },
+            {
+              "query": "trigger00006",
+              "gold": "n8",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n6",
+                "n1771",
+                "n1276",
+                "n1370",
+                "n2299"
+              ],
+              "latency_ms": 223.91060000518337,
+              "operations": 2560014,
+              "truncated": null,
+              "visited": 8,
+              "raw_result_file": "scale-10000-hybrid-q6.json"
+            },
+            {
+              "query": "trigger00009",
+              "gold": "n11",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n9",
+                "n2280",
+                "n597",
+                "n906",
+                "n1015"
+              ],
+              "latency_ms": 235.05409999052063,
+              "operations": 2560014,
+              "truncated": null,
+              "visited": 8,
+              "raw_result_file": "scale-10000-hybrid-q7.json"
+            }
+          ]
+        },
+        "bfs": {
+          "recall_at_5": 0.5,
+          "mrr_at_5": 0.5,
+          "ndcg_at_5": 0.5,
+          "evidence_precision_at_5": 0.1,
+          "latency_ms_median": 230.3059500118252,
+          "latency_ms_p95": 247.00360000133514,
+          "queries": 8,
+          "truncated_queries": 0,
+          "details": [
+            {
+              "query": "case00020",
+              "gold": "n20",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n20",
+                "n1815",
+                "n4884",
+                "n5659",
+                "n1270"
+              ],
+              "latency_ms": 193.0778000387363,
+              "operations": 2560068,
+              "truncated": null,
+              "visited": 16,
+              "raw_result_file": "scale-10000-bfs-q0.json"
+            },
+            {
+              "query": "case00041",
+              "gold": "n41",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n41",
+                "n4822",
+                "n1628",
+                "n2492",
+                "n2935"
+              ],
+              "latency_ms": 243.05559997446835,
+              "operations": 2560067,
+              "truncated": null,
+              "visited": 15,
+              "raw_result_file": "scale-10000-bfs-q1.json"
+            },
+            {
+              "query": "case00062",
+              "gold": "n62",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n62",
+                "n9162",
+                "n1136",
+                "n1588",
+                "n1688"
+              ],
+              "latency_ms": 197.60249997489154,
+              "operations": 2560066,
+              "truncated": null,
+              "visited": 15,
+              "raw_result_file": "scale-10000-bfs-q2.json"
+            },
+            {
+              "query": "case00083",
+              "gold": "n83",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n83",
+                "n5039",
+                "n1016",
+                "n1364",
+                "n1543"
+              ],
+              "latency_ms": 224.29600002942607,
+              "operations": 2560063,
+              "truncated": null,
+              "visited": 11,
+              "raw_result_file": "scale-10000-bfs-q3.json"
+            },
+            {
+              "query": "trigger00000",
+              "gold": "n2",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n0",
+                "n2242",
+                "n3303",
+                "n7206",
+                "n8790"
+              ],
+              "latency_ms": 247.00360000133514,
+              "operations": 2560023,
+              "truncated": null,
+              "visited": 17,
+              "raw_result_file": "scale-10000-bfs-q4.json"
+            },
+            {
+              "query": "trigger00003",
+              "gold": "n5",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n3",
+                "n2023",
+                "n5309",
+                "n1589",
+                "n9029"
+              ],
+              "latency_ms": 188.3444999693893,
+              "operations": 2560020,
+              "truncated": null,
+              "visited": 14,
+              "raw_result_file": "scale-10000-bfs-q5.json"
+            },
+            {
+              "query": "trigger00006",
+              "gold": "n8",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n6",
+                "n1771",
+                "n1276",
+                "n1370",
+                "n2299"
+              ],
+              "latency_ms": 236.50689999340102,
+              "operations": 2560023,
+              "truncated": null,
+              "visited": 17,
+              "raw_result_file": "scale-10000-bfs-q6.json"
+            },
+            {
+              "query": "trigger00009",
+              "gold": "n11",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n9",
+                "n2280",
+                "n597",
+                "n906",
+                "n1015"
+              ],
+              "latency_ms": 236.3158999942243,
+              "operations": 2560027,
+              "truncated": null,
+              "visited": 21,
+              "raw_result_file": "scale-10000-bfs-q7.json"
+            }
+          ]
+        },
+        "ppr": {
+          "recall_at_5": 0.5,
+          "mrr_at_5": 0.5,
+          "ndcg_at_5": 0.5,
+          "evidence_precision_at_5": 0.1,
+          "latency_ms_median": 232.0744500029832,
+          "latency_ms_p95": 243.3047000085935,
+          "queries": 8,
+          "truncated_queries": 0,
+          "details": [
+            {
+              "query": "case00020",
+              "gold": "n20",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n20",
+                "n1815",
+                "n4884",
+                "n5659",
+                "n1270"
+              ],
+              "latency_ms": 191.93490000907332,
+              "operations": 2560228,
+              "truncated": null,
+              "visited": 16,
+              "raw_result_file": "scale-10000-ppr-q0.json"
+            },
+            {
+              "query": "case00041",
+              "gold": "n41",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n41",
+                "n4822",
+                "n1628",
+                "n2492",
+                "n2935"
+              ],
+              "latency_ms": 233.82979998132214,
+              "operations": 2560186,
+              "truncated": null,
+              "visited": 15,
+              "raw_result_file": "scale-10000-ppr-q1.json"
+            },
+            {
+              "query": "case00062",
+              "gold": "n62",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n62",
+                "n9162",
+                "n1136",
+                "n1588",
+                "n1688"
+              ],
+              "latency_ms": 243.3047000085935,
+              "operations": 2560206,
+              "truncated": null,
+              "visited": 15,
+              "raw_result_file": "scale-10000-ppr-q2.json"
+            },
+            {
+              "query": "case00083",
+              "gold": "n83",
+              "category": "factual",
+              "rank_at_5": 1,
+              "retrieved": [
+                "n83",
+                "n5039",
+                "n1016",
+                "n1364",
+                "n1543"
+              ],
+              "latency_ms": 187.09909997414798,
+              "operations": 2560102,
+              "truncated": null,
+              "visited": 11,
+              "raw_result_file": "scale-10000-ppr-q3.json"
+            },
+            {
+              "query": "trigger00000",
+              "gold": "n2",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n0",
+                "n1",
+                "n2242",
+                "n3303",
+                "n7206"
+              ],
+              "latency_ms": 234.7271000035107,
+              "operations": 2560266,
+              "truncated": null,
+              "visited": 17,
+              "raw_result_file": "scale-10000-ppr-q4.json"
+            },
+            {
+              "query": "trigger00003",
+              "gold": "n5",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n3",
+                "n4",
+                "n2023",
+                "n5309",
+                "n1589"
+              ],
+              "latency_ms": 198.29279999248683,
+              "operations": 2560140,
+              "truncated": null,
+              "visited": 14,
+              "raw_result_file": "scale-10000-ppr-q5.json"
+            },
+            {
+              "query": "trigger00006",
+              "gold": "n8",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n6",
+                "n7",
+                "n1771",
+                "n1276",
+                "n1370"
+              ],
+              "latency_ms": 230.31910002464429,
+              "operations": 2560239,
+              "truncated": null,
+              "visited": 17,
+              "raw_result_file": "scale-10000-ppr-q6.json"
+            },
+            {
+              "query": "trigger00009",
+              "gold": "n11",
+              "category": "multihop",
+              "rank_at_5": null,
+              "retrieved": [
+                "n9",
+                "n10",
+                "n2280",
+                "n597",
+                "n906"
+              ],
+              "latency_ms": 240.62779999803752,
+              "operations": 2560417,
+              "truncated": null,
+              "visited": 21,
+              "raw_result_file": "scale-10000-ppr-q7.json"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "limitations": [
+    "No neural embedding evaluation",
+    "Not LongMemEval/LoCoMo",
+    "Not DSH A-F end-to-end comparison",
+    "Eight queries are a smoke benchmark, not statistical quality evidence",
+    "Latency includes scoped storage reads; deadline is cooperative",
+    "Evidence precision uses one gold node per query and five requested slots"
+  ]
+}
