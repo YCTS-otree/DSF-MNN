@@ -1,5 +1,6 @@
 * text=auto eol=lf
 *.zip binary
 *.sqlite binary
-experiments/** -text
-benchmarks/*.json -text
+experiments/** -text -diff
+experiments/*.md text eol=lf diff
+benchmarks/*.json -text -diff
