@@ -7,5 +7,5 @@ New-Item -ItemType Directory -Path '.cache' -Force | Out-Null
 $testDir = Join-Path $projectDir ('.cache/pytest-' + [guid]::NewGuid().ToString('N'))
 python -m pytest -q --tb=short --basetemp $testDir
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-node --test tests/adapter.test.mjs
+node --test tests/*.test.mjs
 exit $LASTEXITCODE

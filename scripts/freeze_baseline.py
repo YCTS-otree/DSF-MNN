@@ -133,7 +133,7 @@ def experiment_files():
     return files, provenance
 
 
-def python_files():
+def python_files(extra_packages=()):
     prefix = Path(sys.base_prefix).resolve()
     files, packages = {}, {}
     for pattern in ("python*.exe", "python*.dll", "vcruntime*.dll", "LICENSE*"):
@@ -150,7 +150,7 @@ def python_files():
                     files["python/" + path.relative_to(prefix).as_posix()] = (path, prefix)
     plugins = [{"entry_point": ep.name, "module": ep.value, "distribution": ep.dist.metadata["Name"], "version": ep.dist.version}
                for ep in metadata.entry_points(group="pytest11")]
-    todo = ["pytest", "tzdata", "packaging"] + [p["distribution"] for p in plugins]
+    todo = ["pytest", "tzdata", "packaging", *extra_packages] + [p["distribution"] for p in plugins]
     while todo:
         distribution = metadata.distribution(todo.pop())
         name = canonicalize_name(distribution.metadata["Name"])
@@ -173,9 +173,9 @@ def python_files():
     return files, sorted(packages.values(), key=lambda p: p["name"].lower()), plugins
 
 
-def node_files(modules):
+def node_files(modules, root_names=("dsh-compaction-basic", "cordis")):
     modules = modules.resolve()
-    files, seen, todo = {}, {}, [modules / "@deepseek-ai/dsh-compaction-basic", modules / "@deepseek-ai/cordis"]
+    files, seen, todo = {}, {}, [modules / "@deepseek-ai" / name for name in root_names]
     def resolve(parent, name):
         for directory in (parent, *parent.parents):
             candidate = directory / "node_modules" / name

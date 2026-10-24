@@ -18,3 +18,4 @@ experiments/*/work/
 experiments/*/artifacts/
 experiments/*/source.zip
 baselines/*/artifacts/
+experiments/private-recovery-*/

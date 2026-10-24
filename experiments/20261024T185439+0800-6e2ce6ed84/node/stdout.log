@@ -1,0 +1,17 @@
+✔ backend preserves the official transaction methods through inheritance (0.7011ms)
+✔ unbound source snapshot, mismatched prepared receipt and cancellation fail closed (0.5055ms)
+✔ stdio client prepares and recalls original Chinese evidence with a trusted scope (428.5701ms)
+✔ stdio client rejects scope mismatch and does not execute cancelled operations (0.3775ms)
+✔ installed DSH BasicCompactionEngine subclass hook works without modifying node_modules (174.8389ms)
+✔ native MNN engine preserves prefix, system, source coverage and durable marker order (153.4331ms)
+✔ plan failure leaves surface untouched and records a closed failed transaction (4.9347ms)
+✔ cancelled or stale plans never replace history and never invoke a fallback (6.0286ms)
+✔ nonshrinking checkpoint is rejected before any surface replacement (6.7533ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 835.209

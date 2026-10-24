@@ -68,8 +68,9 @@ def main():
     environment["MNN_TEST_ARTIFACTS"] = str(run_dir / "work" / "node")
     if args.dsh_node_modules:
         environment["DSH_NODE_MODULES"] = str(Path(args.dsh_node_modules).resolve())
-    revision = subprocess.run(["git", "rev-parse", "HEAD"], cwd=ROOT, capture_output=True, text=True)
-    status = subprocess.run(["git", "status", "--porcelain"], cwd=ROOT, capture_output=True, text=True)
+    git_read = ["git", "-c", "safe.directory=" + ROOT.as_posix()]
+    revision = subprocess.run([*git_read, "rev-parse", "HEAD"], cwd=ROOT, capture_output=True, text=True)
+    status = subprocess.run([*git_read, "status", "--porcelain"], cwd=ROOT, capture_output=True, text=True)
     node = subprocess.run(["node", "--version"], capture_output=True, text=True)
     manifest = {"schema": "dsf-mnn-experiment/1", "id": run_id, "label": args.label, "suite": args.suite,
                 "started_at": local.isoformat(), "timezone": "Asia/Shanghai", "source_tree_sha256": source_digest,
@@ -93,7 +94,8 @@ def main():
             work = run_dir / "work"
             # A brand new run directory; pytest is never pointed at an existing result directory.
             manifest["steps"].append(capture([sys.executable, "-m", "pytest", "-q", "--tb=short", "--basetemp", str(work), "--junitxml", str(run_dir / "junit.xml")], environment, run_dir / "python"))
-            manifest["steps"].append(capture(["node", "--test", "tests/adapter.test.mjs"], environment, run_dir / "node"))
+            node_tests = [str(p.relative_to(ROOT)) for p in sorted((ROOT / "tests").glob("*.test.mjs"))]
+            manifest["steps"].append(capture(["node", "--test", *node_tests], environment, run_dir / "node"))
         else:
             manifest["steps"].append(capture([sys.executable, "scripts/benchmark.py", str(run_dir / "results.json"), str(run_dir / "work")], environment, run_dir / "benchmark"))
     except Exception as error:

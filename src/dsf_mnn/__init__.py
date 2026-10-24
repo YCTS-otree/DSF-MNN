@@ -1,6 +1,6 @@
 """DSF-MNN: scoped, evidence-preserving associative memory."""
 
-__version__ = "1.0.0"
+__version__ = "1.1.0"
 
 from .model import Event, Node, Scope
 from .store import MemoryStore

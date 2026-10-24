@@ -1,0 +1,131 @@
+{
+  "schema": "dsf-mnn-release-validation/1",
+  "version": "1.1.0",
+  "kind": "offline-research-source",
+  "created_at": "2026-10-24T18:55:57.294225+08:00",
+  "archive_sha256": "d1ffc089e17491512e1dce11fad5f425b06de1161a8624f98d6eef2e2dd9635a",
+  "source_files": {
+    ".gitattributes": "79fc3fb4f80fbf6c3315b3c419bfc23fab23db1f1c641eaa019e5dbe65b3c603",
+    ".gitignore": "8a2910fad18f1490b79571a8fb42e20fe03211fb8c37e4a3c6ce214138cb4f4a",
+    "adapters/dsh/audit-recovery.mjs": "123550b6456a8f0adc6ce7069b482b52f4e1fa7f13639b741b6e93f429249b90",
+    "adapters/dsh/backend.mjs": "99deb95f042de139bbfb96249ade7ee1ebe6610a6d1c729257f9ed7d5a6c5e8a",
+    "adapters/dsh/client.mjs": "2d799bf3015be639f16b32cfc0028e115b10fcaaaa1428a0a7ab3cceb9ec5c63",
+    "adapters/dsh/cognitive-engine.mjs": "7f0bc7247fa7b8c73d47493f4a686570ece77440ec89c8222dfc52be716ab74c",
+    "adapters/dsh/native-kernel.mjs": "51d7de38bb1374dd6b4ddeb8ad92cbbc7f0b68b2ac44456439c9610cbb2720f3",
+    "adapters/dsh/package.json": "92ab4154e4bf5922182d3053c63be4c656136d3b28f06ee788c49a0875c59dba",
+    "adapters/dsh/recovery-experiment.mjs": "6636cc81dfe1827e1d427cc1d09b1853ee30789c0f2e561b93f2b7b6cdc60fc5",
+    "adapters/dsh/recovery-inspect.mjs": "68d64c8a3554e9538cd2b6951f2eaa40373791c69d402bc5285147eb9b16ac15",
+    "adapters/dsh/remote-provider.mjs": "e1d49e3c23d8d88b9fbbff4d7f52ff7ccbfb920b10a7ab6d456028e630a84076",
+    "AGENTS.md": "c22d8096dbfadb251145fe4e61dcc3e7c88a81d3680f75de855f13e9ca190ada",
+    "CHANGELOG.md": "8aa689083220078a9ff337f300db49e6133348d87fdc3bc769383a4c72130e95",
+    "configs/offline.example.json": "0b4af6130ab02932e3142a89e40f1612b257932b56730b1989dde89e34e005e9",
+    "configs/synthetic.events.json": "648d5ec8d03f495cef0611e0239c59293a87feac6b61090d4fb2b587f69e5baa",
+    "docs/ADR-001.md": "7b3531095c1cc2ee610709fcc99b2ff64d4212642a598439d626616b0b10281a",
+    "docs/ADR-002.md": "3222f8b8b0ea16fd612fd4b2c54e141291efd9ade0daa06d20415bb8b322c6c7",
+    "docs/ADR-003.md": "dc3db3f8cd7773ed72e5fc69e4fa4da50ee1fd08159aecc7a92206fdc01bb4ad",
+    "docs/ARCHITECTURE.md": "3caf07afa97cc83993ebb04fc07b44c5a84fcc3eb993e607dd329fc8a7dc3442",
+    "docs/COGNITIVE_DREAMING.md": "29c4a4bb33052ef3eba93d6dce65c78f57bb0db660f2d9457afa31a579051aad",
+    "docs/INTEGRATION.md": "94ad322913490d58cd67240b77e744dbe2736fee952062bacdb21a4f21d4dbe6",
+    "docs/RECOVERY_EXPERIMENT_20261024.md": "43826baa2058d8157ca2629a7cb519f90781edd538003771f57cf29309f18b0c",
+    "docs/REFERENCE_RESEARCH.md": "6bd06733429f634f4d92d1c3d0cd4f28eac85b13731013755015fc6fdbda4579",
+    "docs/RESEARCH_BASELINE.md": "394fd1048edbca5975014e945edd29df877cfd27b1f6930d88cedcb4acf9326e",
+    "docs/ROADMAP.md": "0b90a5a94ad38b50dd2cee773ef55728e6723192c8e44ed51fada1c92669cb11",
+    "docs/TEST_REPORT.md": "c2fe8f24d47eef2f912ae6ddedab09ffee838ddb5d89583e88e8b5797b8a7916",
+    "pyproject.toml": "a9a05bc475d7629e647a7c65855b26b9712903f0af44cf1c2fc4b7aaf0bc612b",
+    "README.md": "5b42e64aefececbc24a19f0843b7c7c08d3fdb8df42409568309e26f0791c120",
+    "scripts/benchmark.py": "9b7ba854c0fd4b99db8ecda3361f670af4695fea0258508ed672b6ebf0563b67",
+    "scripts/build_context_plan.py": "313807535fe5cff44fdc0282eab41e7e433f2ad0db1dceca094835700410120f",
+    "scripts/compare_recovery.py": "ae4d96546d60cc8d6ba5c1285d4378792d252bf5cb874b058cea7742394afd0d",
+    "scripts/freeze_baseline.py": "f25557fa88303bdbdb0852ca119c22f8c29b89390d968086ab25e33eb3398891",
+    "scripts/mnn.ps1": "e9dae44d99a60d9934ced3912f9d5fdf7a9e8280900d55d05bad6889a1ffa227",
+    "scripts/mnn.sh": "152f3dfeb89ff81e3746d52e16d5e6ad5bbb8e3a7202a5627ac959a7a2ff96f9",
+    "scripts/package_release.py": "40a0bd6712d701fdaa727720be87cf091991ef2b9f0f2a13a99b51a4d9c3d9d1",
+    "scripts/preserve_recovery.py": "6431bf5c409962f3f930e8fb710c6d3c5115094c5c68ef7c846fb35ef2799bb4",
+    "scripts/record_experiment.py": "1e219d24768a919204b8ea74b978d5c0abd35a580501401e61ca9489a8aafb0a",
+    "scripts/recovery_prepare.py": "27b036993bbd69f37335d16de83b8372654a6276dff1dcb7320fdc79b5aaaac2",
+    "scripts/replay_v1_baseline.py": "e2de04e8aa3593ed1eb8b16f1e3d61623e71d765f15c601b9c8df17053fd1e3a",
+    "scripts/retain_initial_experiments.py": "3f2438db4106cc787edd36f79f9ad742be6d326998c63321df87df3807c2c351",
+    "scripts/revise_grounding.py": "91f49e2b44b4203caa6f83817ad449f0111305f8a7101962abe4cfa6ce1a1176",
+    "scripts/run_cognitive_dreaming.py": "ec54268aae82f179271549b7614df4316d121e5cb4761de585cc7a3bb1611973",
+    "scripts/test.ps1": "09b5973954331609e8760cc5557fb7cc991f658b39928d9b6a2b224fc0385aad",
+    "scripts/validate_frozen_baseline.py": "9599dae8f93f0dcb61c4362fa55812f3b475ec2e51fe475907c69329db83eedd",
+    "scripts/verify_recovery_sources.py": "f05eb454d5d42d779b02a4501aa8e309aa9a153cf9340e4eac88d6dfe4c45b40",
+    "src/dsf_mnn/__init__.py": "728e66e1bdc6ff9c4842b66d7e3a2c8555d1d48473e8ddc38746d4d1fe8e51ae",
+    "src/dsf_mnn/__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "src/dsf_mnn/acr.py": "54c6d0cf80bfc2325eec858c13e5d354494f5da742cf49c68f900fcab4e72a14",
+    "src/dsf_mnn/association.py": "d57b2422e644e154fddf3b36c5e43aae3f5deca4c75027ff8fbe8378627963f4",
+    "src/dsf_mnn/benchmark.py": "16961511a733d628760a7b8f421a6d47416267c3109b93cf879ec3c7693e9a86",
+    "src/dsf_mnn/cli.py": "29c4d95fe9b3c07e48247fe79837089b9df07a5c02d9bd00f54935b4a82af179",
+    "src/dsf_mnn/compaction.py": "76b8b1d9fa55a349d0b065dea6c1ed6d68d14a71fef7864dd1877bf856f1e0a2",
+    "src/dsf_mnn/embedding.py": "d6efe62621f0a936a7c2e14c4f79f74a6370aa3ceccaa111b4580668a922bd2f",
+    "src/dsf_mnn/evidence_recall.py": "a98fab814d8bb971bd1f54ccde48d0d01e20173055433936a056af7abbba6e5b",
+    "src/dsf_mnn/formation.py": "4e6cb6e537481b44249d1eff488c901a6acb78b8bbef2e8f44e6dd37e649097d",
+    "src/dsf_mnn/lifecycle.py": "89cb2e0ae1abd95d9368830cd99ecda41d52ceb9083c07588de7ab9a02496253",
+    "src/dsf_mnn/model.py": "33463681af29eeb05d89f2a3489c9b49c7954cdb50ad629fbc66785e09ef7a09",
+    "src/dsf_mnn/recall.py": "03512166356c645af400e5484b94a4665ee68b9134b55a9747171b9b77bb8ce2",
+    "src/dsf_mnn/remote.py": "0c0b541e1d7a64f6c9cfe004f7b183d837715e4380e1f9a5fe9ef43b04396a61",
+    "src/dsf_mnn/run_lock.py": "1406dffae7d6d21d299bb49a7710ffca50ef62b8b9be629dcacd8e441c542f3b",
+    "src/dsf_mnn/schema.sql": "6394435a76cc790f87d11a55aad190ebdca4b8cb6747e9c77ab93768caa03c90",
+    "src/dsf_mnn/semantic.py": "448ab3f2642bf56657c01c11f9e3caff799690074fdae9d524e8045993739097",
+    "src/dsf_mnn/snapshot.py": "b5e10777d76351bbbad729837c2e6ff44f635f7cd5025cd0ccb05328d8a8ee49",
+    "src/dsf_mnn/store.py": "5e63261f3fe10f29e74cb312c0693e549ef6cc7cb2c32e7bde70f60edf315d66",
+    "src/dsf_mnn/token_budget.py": "a6883b9330b02715fc1b948319de0bf5c849f4ecf139b2bb16c1b2a16e775d4b",
+    "src/dsf_mnn/tools.py": "654a2f1ccecd047bd7f5bf9c21a1eb4d4725c4e55c117d3d3a44f667a724de51",
+    "src/dsf_mnn/transfer.py": "fbb3fd13201d23f36c9f2c6b0bc7001800bc158a6d432fc9bdd5711220740240",
+    "tests/adapter.test.mjs": "0624c3bba91b963763c63ed756f88b236690b28658f4632ecaceb1eee9c8f89f",
+    "tests/cognitive-engine.test.mjs": "ba316a09fbb3fa84816610efeb2674c18a95def8864883e405d0a28386316110",
+    "tests/test_acr.py": "7c8790c1fe56a3d3de3a6b58b3ecfd35eb92010a87751ab39eab385e4106911a",
+    "tests/test_boundaries.py": "fe24775d723618bb37ea31a4910541076e4756beeb707b653b1ac5ad54be5429",
+    "tests/test_memory.py": "d8cca5a021496712eb3ac3e99e981e88d9d7e4a5e59f644855295031268f2ecb",
+    "tests/test_semantic.py": "fb2b8bc26bace520e581e2968a7cd425e6158e86e13bc0b960148b2221d9a6bb",
+    "tests/test_tools.py": "38c0bc89e4446e7e57ef2111a2a44c9482033d3fbd7983ef03305cfdd4d6cff1",
+    "THIRD_PARTY_NOTICES.md": "a5178d36716165b87f58d30dbf538c2b6dc511393cc44a1483bb12d02c8d9183",
+    "benchmarks/baseline-v1.0.0.json": "a331f6d14c2f3d53557b45fcfa06c67b5bd249973e9539c92258523be0e932e2",
+    "benchmarks/results-v1.0.0.json": "2cbd603c01e14affcb1b4bfff3e3b33b233cbdacf045629d35f232e4ba64e9ed",
+    "experiments/README.md": "c9ccf533bece6b21e04ab5f5a375e2f704da0034f604f06242120d7a4a455166"
+  },
+  "validation": {
+    "passed": true,
+    "commands": [
+      {
+        "arguments": [
+          "status"
+        ],
+        "exit_code": 0,
+        "stdout": "{\"edges\":0,\"embeddings\":0,\"events\":0,\"metrics\":{},\"nodes\":0,\"receipts\":0,\"schema_version\":1,\"version\":\"1.1.0\",\"watermarks\":{}}\r\n",
+        "stderr": ""
+      },
+      {
+        "arguments": [
+          "ingest"
+        ],
+        "exit_code": 0,
+        "stdout": "{\"episode_ids\":[\"episode_8b823a80f6df2766e48b0de5\"],\"inserted\":2,\"through\":2}\r\n",
+        "stderr": ""
+      },
+      {
+        "arguments": [
+          "search",
+          "微信幂等"
+        ],
+        "exit_code": 0,
+        "stdout": "{\"embedding_space\":\"e5ca12d90c83f6ab81b8cf8f0a92277f226a95c8c09bc43877cb629bc66d2ae5\",\"filtered\":[],\"hits\":[{\"evidence\":[{\"id\":\"demo-1\",\"observed_at\":\"2026-10-23T02:00:00.000000+00:00\",\"source_kind\":\"user_statement\",\"source_uri\":\"synthetic://demo/1\"},{\"id\":\"demo-2\",\"observed_at\":\"2026-10-23T02:01:00.000000+00:00\",\"source_kind\":\"tool_verified\",\"source_uri\":\"synthetic://demo/2\"}],\"evidence_confidence\":0.5,\"node\":{\"confidence\":0.5,\"content\":\"微信桥接发送超时后可能重试，任务要求避免重复发送。\\n合成工具测试确认：相同幂等键重复请求只写入一条记录。\",\"created_at\":\"2026-10-23T02:01:00.000000+00:00\",\"embedding_ref\":null,\"id\":\"episode_8b823a80f6df2766e48b0de5\",\"metadata\":{\"extraction\":\"deterministic-v1\",\"layer\":\"daily\",\"source_kinds\":[\"tool_verified\",\"user_statement\"],\"topic\":\"bridge-idempotency\"},\"observed_at\":\"2026-10-23T02:00:00.000000+00:00\",\"owner_scope\":{\"agent_id\":\"synthetic-whale\",\"session_id\":\"synthetic-session\",\"user_id\":\"synthetic-user\",\"visibility\":\"private\",\"workspace_id\":\"demo\"},\"source_refs\":[\"demo-1\",\"demo-2\"],\"status\":\"active\",\"summary\":\"\",\"type\":\"Episode\",\"valid_from\":null,\"valid_to\":null,\"version\":1},\"path\":[],\"relevance\":1.0,\"temporal_validity\":\"current\"}],\"latency_ms\":1.4671999961137772,\"operations\":486,\"seeds\":[{\"activation\":1.0,\"id\":\"episode_8b823a80f6df2766e48b0de5\"}],\"strategy\":\"hybrid\",\"truncated\":null,\"visited\":1}\r\n",
+        "stderr": ""
+      },
+      {
+        "arguments": [
+          "backup",
+          "G:\\Python\\Python\\Py_project\\DSF_MNN\\experiments\\release-20261024T185556-55c2fe122c\\work\\standalone-check\\data\\verified.sqlite"
+        ],
+        "exit_code": 0,
+        "stdout": "{\"path\":\"G:\\\\Python\\\\Python\\\\Py_project\\\\DSF_MNN\\\\experiments\\\\release-20261024T185556-55c2fe122c\\\\work\\\\standalone-check\\\\data\\\\verified.sqlite\",\"verified\":true}\r\n",
+        "stderr": ""
+      }
+    ]
+  },
+  "limits": [
+    "Neural embedding unverified",
+    "Production DSH not enabled",
+    "Research experiments retained separately"
+  ]
+}

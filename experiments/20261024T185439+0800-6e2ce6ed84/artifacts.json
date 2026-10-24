@@ -1,0 +1,306 @@
+{
+  "junit.xml": {
+    "sha256": "4f4ea05c733b1800d9a777c13087179e7e090ca7ddd3aeeeedb8df22de33cc78",
+    "bytes": 6525
+  },
+  "manifest.json": {
+    "sha256": "a7575a8c184282cfd25abc1f6a923cbfb696d78fe452a190e206ab8b1ea930b4",
+    "bytes": 2199
+  },
+  "source-files.json": {
+    "sha256": "51c21792507826b0a5323ef97b391e76cc3819aabb299a45ab01c98a7b1dcdc5",
+    "bytes": 7383
+  },
+  "source.zip": {
+    "sha256": "4a81415e3f38f33ad51860cdcce80bb249e34037addb2d6e866266f491ef1b44",
+    "bytes": 146739
+  },
+  "node/stderr.log": {
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  "node/stdout.log": {
+    "sha256": "4a1895e6cd5bbe082c8494f0877ca7f80aec005123ed8b08e949a3ec6e4dd496",
+    "bytes": 957
+  },
+  "python/stderr.log": {
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  "python/stdout.log": {
+    "sha256": "d9a74f2014228c6452c19116fe230d618d10a0cabd2f90aa55d28514213d8dc4",
+    "bytes": 216
+  },
+  "work/node/adapter-8vmAMy/actual-package.sqlite": {
+    "sha256": "afaf952c2a779c0b90b3a7fc4c35dcf826c68847104cfb000a934a5dc9a4cc6c",
+    "bytes": 143360
+  },
+  "work/node/adapter-8vmAMy/rpc.sqlite": {
+    "sha256": "3cb8ce52f9c6ca37ff41e821c3f144c3ef9b84fe19c0b736b9a0f91fc505db1a",
+    "bytes": 143360
+  },
+  "work/test_acr_budget_failure_never_0/memory.sqlite": {
+    "sha256": "7f1c20ebf561452882cd876fba0d20bf4e14b5b21ba897682c30c71815cbbd18",
+    "bytes": 143360
+  },
+  "work/test_acr_preserves_old_exact_f0/memory.sqlite": {
+    "sha256": "e93c44dca4e2cbb52b0a97bc689cca652a8d5faa20be8ff56e6bf014f269cbce",
+    "bytes": 143360
+  },
+  "work/test_acr_replans_goal_state_an0/memory.sqlite": {
+    "sha256": "c1a52d090918f4fbc028a272b79591ab1ac1de2515f81b39d3b590e1ff1d785d",
+    "bytes": 143360
+  },
+  "work/test_association_cheap_noop_an0/memory.sqlite": {
+    "sha256": "087c463345899ae863e6acb74d4aabf5adb6b114758c29a5a21df4aa65cf6833",
+    "bytes": 143360
+  },
+  "work/test_association_proposes_then0/memory.sqlite": {
+    "sha256": "d01564a28df491cfe7f5d14e70589cad7b4c907a53843983d111abc8748c070f",
+    "bytes": 143360
+  },
+  "work/test_association_rejects_stale0/memory.sqlite": {
+    "sha256": "90de260caad60d8cbd6b30dd2bc231642ab87c195a51f5de06b698485bfe0f17",
+    "bytes": 143360
+  },
+  "work/test_association_total_compute0/budget.sqlite": {
+    "sha256": "2c9f02d1cd22684e0dae19a975480cba1dca708b9d5e41c79a389b7a5f3d9593",
+    "bytes": 143360
+  },
+  "work/test_checkpoint_budget_fails_b0/memory.sqlite": {
+    "sha256": "4e2d5b282b5214600b754d449bc4fb26afe846688e27399e88761d78b9494084",
+    "bytes": 143360
+  },
+  "work/test_chinese_technical_fts_two0/memory.sqlite": {
+    "sha256": "1523082d23e6e1c8b6744340a9be22cbf75c7d66b7208c2b2e74821a5af8806c",
+    "bytes": 143360
+  },
+  "work/test_concurrent_dreaming_is_re0/memory.sqlite.dreaming.lock": {
+    "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9",
+    "bytes": 1
+  },
+  "work/test_corrupt_index_rebuild_wit0/memory.sqlite": {
+    "sha256": "efe56c35909a2e99dd336638b5b887725e9972596f89ebbe0ecbc7ed1ea6d7fa",
+    "bytes": 143360
+  },
+  "work/test_current_projection_cites_0/sources.sqlite": {
+    "sha256": "9edc722179050b37a0f1eb43ce1778f06f87f2bdc6de5d2d172936d3299c5633",
+    "bytes": 143360
+  },
+  "work/test_daily_idle_watermark_and_0/memory.sqlite": {
+    "sha256": "799ab089deafafdc55da76c041c1c45c35ec32dcc3e95db235b873ff313e1f73",
+    "bytes": 143360
+  },
+  "work/test_direction_and_relation_fi0/memory.sqlite": {
+    "sha256": "59dbe2703fcfcf7c09bd58a482cecf50145f172f72e92aa2a4a2bcf7f54456ca",
+    "bytes": 143360
+  },
+  "work/test_dreaming_concurrent_proce0/parallel.sqlite": {
+    "sha256": "e099493c9710e0161cffa26130671f052a8e535da2fcff232d4f50dbefc9546e",
+    "bytes": 143360
+  },
+  "work/test_embedding_spaces_do_not_m0/memory.sqlite": {
+    "sha256": "1d0704d0d9ad4a8beea01816b130e30f05a4d3e03758eb09700f4e1ec55fa69a",
+    "bytes": 143360
+  },
+  "work/test_episode_joins_ten_message0/memory.sqlite": {
+    "sha256": "2fab288c423ac05064fb07fd5cc256cd435b142046d82efafa2a0e34be4c987e",
+    "bytes": 143360
+  },
+  "work/test_event_collision_does_not_0/memory.sqlite": {
+    "sha256": "e57d4d603917f849f9c48eab981fd5087eb79d00020d0749acd01f59dceeb5c1",
+    "bytes": 143360
+  },
+  "work/test_forget_propagates_to_hist0/memory.sqlite": {
+    "sha256": "06e1e505222a710ded8a112090500800a2659dc8c09a60853125f64b1d8d92a8",
+    "bytes": 143360
+  },
+  "work/test_inference_cannot_retire_v0/memory.sqlite": {
+    "sha256": "21b5f4ea52b9883724f09eba3d9b70e5110aeb4ebedbc4e82b94d6f85541e3e6",
+    "bytes": 143360
+  },
+  "work/test_interrupted_write_recover0/crash.sqlite": {
+    "sha256": "96e36609e31a68e440d2fe1908546c9e3621e04eddbee3dbddcddaaa3acf3dfc",
+    "bytes": 143360
+  },
+  "work/test_json_import_tampering_fai0/memory.sqlite": {
+    "sha256": "09a729e42297435a627117b51421f583527617b723dc6bf3feaa8ea8b96df748",
+    "bytes": 143360
+  },
+  "work/test_json_import_tampering_fai0/new.sqlite": {
+    "sha256": "4e2d5b282b5214600b754d449bc4fb26afe846688e27399e88761d78b9494084",
+    "bytes": 143360
+  },
+  "work/test_late_unseen_event_and_fut0/late.sqlite": {
+    "sha256": "4d438e25e96b9d67408b4473c64bd6af4df64a733e1fd67a60d979da23179b42",
+    "bytes": 143360
+  },
+  "work/test_llm_valid_quote_with_inve0/memory.sqlite": {
+    "sha256": "991be875d22f6f507acd35a688325e2111c8a25e9b6e36f42c80d60b9ace9563",
+    "bytes": 143360
+  },
+  "work/test_operation_budget_and_cont0/memory.sqlite": {
+    "sha256": "1a7f5b58a08b89c0ad8362fdd536315903d45ba651994454b25dbfdc41ca98eb",
+    "bytes": 143360
+  },
+  "work/test_ppr_dangling_cycles_and_h0/memory.sqlite": {
+    "sha256": "004d5e87c38b5a2e34a4404e1280e20ddb038b9461fc3358648ff08a3f9cb8b2",
+    "bytes": 315392
+  },
+  "work/test_prepared_retry_rechecks_i0/retry.sqlite": {
+    "sha256": "9c045495cc0893238b47883300c4e85e4fc0b5afe6b0acd3ce963e42e1f5a41e",
+    "bytes": 143360
+  },
+  "work/test_provider_failure_preserve0/memory.sqlite": {
+    "sha256": "41dd30ac6ebd3b164a680c0da10596edd9920abcde4486504d615310c2a2d35d",
+    "bytes": 143360
+  },
+  "work/test_provider_failure_preserve0/memory.sqlite.dreaming.lock": {
+    "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9",
+    "bytes": 1
+  },
+  "work/test_provider_failure_preserve0/out/run-manifest.json": {
+    "sha256": "ee7493b239b329efa21b48e098a611e6e54d747e58f1a1e41d6d86b94c8f904e",
+    "bytes": 372
+  },
+  "work/test_provider_failure_rolls_ba0/memory.sqlite": {
+    "sha256": "4e2d5b282b5214600b754d449bc4fb26afe846688e27399e88761d78b9494084",
+    "bytes": 143360
+  },
+  "work/test_provider_transport_timeou0/receipts/llm-3326dbf497bb6b15949f.json": {
+    "sha256": "0b94e5a94c6d85c9857741625094dca1c3a7d969f0071aba2eca7530152201df",
+    "bytes": 428
+  },
+  "work/test_raw_evidence_fallback_sco0/memory.sqlite": {
+    "sha256": "0457ec71c7ec091d69ba6e8aeacce68850c0a9141156695b587e46ed3fb00c5e",
+    "bytes": 143360
+  },
+  "work/test_recent_tail_extends_to_co0/tail.sqlite": {
+    "sha256": "4ad355eafac7bc367d049289dfba4ba9c9a450f07f4e41f84daf8e382b5f0827",
+    "bytes": 143360
+  },
+  "work/test_resume_rejects_changed_ch0/memory.sqlite": {
+    "sha256": "41dd30ac6ebd3b164a680c0da10596edd9920abcde4486504d615310c2a2d35d",
+    "bytes": 143360
+  },
+  "work/test_resume_rejects_changed_ch0/memory.sqlite.dreaming.lock": {
+    "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9",
+    "bytes": 1
+  },
+  "work/test_resume_rejects_changed_ch0/out/run-manifest.json": {
+    "sha256": "ee7493b239b329efa21b48e098a611e6e54d747e58f1a1e41d6d86b94c8f904e",
+    "bytes": 372
+  },
+  "work/test_self_rejects_creative_ext0/memory.sqlite": {
+    "sha256": "efe588605558bd3cd8a53a59ef6d66b9bd555327b76b4d3a7735361bfd71b50c",
+    "bytes": 143360
+  },
+  "work/test_semantic_creation_time_is0/memory.sqlite": {
+    "sha256": "b0d4e699deccf890ae04e9ca597a815e9ca57bdcffd968c9d2f97e6af6d38e61",
+    "bytes": 143360
+  },
+  "work/test_semantic_noop_and_retry_p0/memory.sqlite": {
+    "sha256": "cd8291396a3591155465826db8e6130ac2ef25a28800122128681712f98eb75c",
+    "bytes": 143360
+  },
+  "work/test_semantic_noop_and_retry_p0/memory.sqlite.dreaming.lock": {
+    "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9",
+    "bytes": 1
+  },
+  "work/test_semantic_noop_and_retry_p0/out/chunk-0000.json": {
+    "sha256": "b0c60e25989a3bd80b25eb79fbc103ffc895a9ba5ac97157a172e87f2845e736",
+    "bytes": 434
+  },
+  "work/test_semantic_noop_and_retry_p0/out/dreaming.json": {
+    "sha256": "df492c70e36e9b602aa6545a469a601845868032301903dfebe860f776072e8d",
+    "bytes": 555
+  },
+  "work/test_semantic_noop_and_retry_p0/out/run-manifest.json": {
+    "sha256": "b2cb1a949c50f366323da5a7c92330e912bb4aac5d3c3fa4d38e24bb899774ca",
+    "bytes": 374
+  },
+  "work/test_sequence_collision_rolls_0/memory.sqlite": {
+    "sha256": "4e2d5b282b5214600b754d449bc4fb26afe846688e27399e88761d78b9494084",
+    "bytes": 143360
+  },
+  "work/test_T01_fact_and_evidence_ret0/memory.sqlite": {
+    "sha256": "2895c8e2d4228200a057ed108f0908aa276ff96f3e2868181090a7e047b29249",
+    "bytes": 143360
+  },
+  "work/test_T02_aware_time_and_future0/memory.sqlite": {
+    "sha256": "7485aa3dd71219df356ff55b70ada4ae94d1b11583c30400b66f9d456a37a28d",
+    "bytes": 143360
+  },
+  "work/test_T03_T04_T13_multi_hop_exp0/memory.sqlite": {
+    "sha256": "2a0806b5ca2c7c2c09782f972ecd764368a6bd8ada978de95f052f9e235cc7b0",
+    "bytes": 143360
+  },
+  "work/test_T03_T04_T13_multi_hop_exp1/memory.sqlite": {
+    "sha256": "1f2cd6a29a33f1ef2e224322580eb2cec45adaaf5f72d8d44349e9262dda7896",
+    "bytes": 143360
+  },
+  "work/test_T05_T06_supersession_curr0/memory.sqlite": {
+    "sha256": "26cbeb93d91bcb0c6cb4bfb0a9d17b092cb9e047d0e0897a31840cadb1a30541",
+    "bytes": 143360
+  },
+  "work/test_T07_checkpoint_evidence_a0/memory.sqlite": {
+    "sha256": "0fbc0b58516e716a83a65b33ed2e102fadf9fd4f19bed85e24e39f58fad6b0eb",
+    "bytes": 143360
+  },
+  "work/test_T08_dreaming_goal_carryov0/memory.sqlite": {
+    "sha256": "2d2d54bb7a3d00a08ebc18dec92f8d360e2efdd05614213e37adb46758300c7e",
+    "bytes": 143360
+  },
+  "work/test_T09_self_projection_evide0/memory.sqlite": {
+    "sha256": "3eea71a64fb3792c302bc540f5e91701a7c13073b8bee13c1f67c8c87b49e663",
+    "bytes": 143360
+  },
+  "work/test_T11_backup_restore_restar0/backup.sqlite": {
+    "sha256": "46b509ec67beab4400f0b05d8342b762937a097791378cd47e88f8202d13fb58",
+    "bytes": 143360
+  },
+  "work/test_T11_backup_restore_restar0/import.sqlite": {
+    "sha256": "98b91f64f331e9f8ecbfc1d18df4ffdb24aa5e9f3f192f2d845893df04207145",
+    "bytes": 143360
+  },
+  "work/test_T11_backup_restore_restar0/memory.sqlite": {
+    "sha256": "3ad830034d2884a1d1b5db0666a6e0b152aed7915dd1ca5b5d5270e8bee1cc6e",
+    "bytes": 143360
+  },
+  "work/test_T11_backup_restore_restar0/restored.sqlite": {
+    "sha256": "0fd29bafa5cbf3acf39572f245624b4e2a441218a130528d6b4ee8dd2cbab241",
+    "bytes": 143360
+  },
+  "work/test_T12_scope_blocks_nodes_ev0/memory.sqlite": {
+    "sha256": "524ba2ff1f819bc2ae151c2459169922ebb5ca13e20459b07d26e10e620b8024",
+    "bytes": 143360
+  },
+  "work/test_task_change_selects_relev0/memory.sqlite": {
+    "sha256": "39bad08df3f97254eeacd6c16ab5994f35a7b36e22c76c93f434e8910697132d",
+    "bytes": 151552
+  },
+  "work/test_unfinished_tool_and_inval0/memory.sqlite": {
+    "sha256": "66f248a28d6f6c2fc0d4eb89e62d4171f69e34f42458ec5afad63a8594df59eb",
+    "bytes": 143360
+  },
+  "work/test_unknown_schema_rejected_w0/future.sqlite": {
+    "sha256": "50eeef25d287671bb0159014ece3b58cd8ba6cf7379e6ad195c923fe0530f2d9",
+    "bytes": 143360
+  },
+  "work/test_unverified_llm_quote_neve0/memory.sqlite": {
+    "sha256": "dee6d889f24b52f93d15420d02c673eac5fbed5da469c899955b038b08dd7727",
+    "bytes": 143360
+  },
+  "work/test_version_history_undo_and_0/memory.sqlite": {
+    "sha256": "8116544caf2bba94cc515c76d119e8c418215d32dda34dfd9ef1daeaf5dc9f89",
+    "bytes": 143360
+  },
+  "work/test_voluntary_tools_use_same_0/tools.sqlite": {
+    "sha256": "1dc479205844ba3f61a3a072600ea74f9f24e77fc2d0795f5c6a800192fe49c2",
+    "bytes": 143360
+  },
+  "work/test_zero_weight_edge_is_not_a0/zero.sqlite": {
+    "sha256": "ee793c0e4323cd5e55839aaa2e848156041f43517c43e02a1fdb1fcd7e4a9eb3",
+    "bytes": 143360
+  }
+}

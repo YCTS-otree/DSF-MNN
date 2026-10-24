@@ -1,4 +1,4 @@
-# DSF-MNN 架构 v1.0.0
+# DSF-MNN 架构 v1.1.0
 
 单机模块化核心：事件引用 → Episode Formation → 带来源节点/关系 → 混合召回与局部激活 → Carryover / Dreaming / Compaction 计划。所有模块使用同一个 SQLite 可信存储，不为每日/长期/Self 再造互不关联的数据库。
 
@@ -28,4 +28,8 @@ Daily/Dreaming 用固定事件上界、事务水位和任务收据；单个 scop
 
 先独立快照适配与 shadow checkpoint；MNN 提交完成、索引可用、关键 evidence/参数/任务均校验后，才返回准备收据。DSH 接收后仍负责本身日志事务。prepared、DSH committed 的收据可能暂时不一致，重试同快照幂等，恢复时对账；不先删除原始历史。
 
-适配器工厂仅扩展 summarize，并要求可信 snapshotResolver。正式装配、精确选区绑定、原生压力/overflow/取消故障注入、生产 .DSF 门禁尚需集成验收。未启用前原 Basic 为唯一后端。
+v1.0.0 的 summarize 扩展工厂作为对照保留。v1.1.0 新增独立的 CompactionEngine，不调用 Basic：固定事件范围 → 独立 LLM 分段 Dreaming → MNN 持久化 → ACR → 服务端完整 Token 验证 → 原生维护事务提交 → 同 Session 续接。完整 system、原始事件和工具配对保留；失败明确上抛。
+
+新语义任务在网络期间使用 OS 文件锁、逐段事务、不可覆盖的 run manifest/完成结果。ACR 读取 Goal 状态、任务相关旧证据、事件时间和原始 Self；四种动作允许重叠。作用域内原文 BM25 回查补充图谱，三种回忆不分库。
+
+真实隔离恢复与负例见 [实验报告](RECOVERY_EXPERIMENT_20261024.md)，实现约束见 [ADR-003](ADR-003.md)。正式装配、实时压力/overflow/崩溃故障矩阵和生产门禁尚需验收；本轮没有启用 Basic 或生产新后端。

@@ -33,6 +33,9 @@ def rpc(store, request):
         events = validate_snapshot(request["snapshot"], scope)
         return CognitiveCompaction(store, provider).prepare(scope, events, checkpoint_bytes=request.get("checkpoint_bytes", 32768))
     if operation == "recall":
+        if request.get("include_evidence"):
+            from .evidence_recall import EvidenceRecall
+            return EvidenceRecall(store).context(scope, request["query"], byte_budget=request.get("byte_budget", 4096))
         return recall.context(scope, request["query"], byte_budget=request.get("byte_budget", 4096))
     if operation == "search":
         return recall.search(scope, request["query"], strategy=request.get("strategy", "hybrid"))
@@ -42,6 +45,22 @@ def rpc(store, request):
         return SpontaneousAssociation(store, recall).consider(scope, AssociationCue(**cue))
     if operation == "status":
         return store.status(scope)
+    if operation == "validate_refs":
+        refs = request.get("refs", [])
+        if not isinstance(refs, list) or len(refs) > 1000:
+            raise MemoryError("invalid-reference-validation-request")
+        for ref in refs:
+            node = store.node(scope, ref)
+            if ref in request.get("versions", {}) and node["version"] != request["versions"][ref]:
+                raise MemoryError("context-plan-memory-version-changed")
+        if "goal_state" in request:
+            current = [{"id": n["id"], "version": n["version"], "status": n["status"]} for n in store.nodes(scope) if n["type"] == "Goal"]
+            if current != request["goal_state"]:
+                raise MemoryError("context-plan-goal-state-changed")
+        return {"validated": len(refs)}
+    if operation == "evidence":
+        from .tools import MemoryTools
+        return MemoryTools(store, scope).memory_get_evidence(request["id"])
     raise MemoryError("rpc-operation-not-allowed")
 
 

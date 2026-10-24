@@ -31,7 +31,7 @@ class GoalState:
         return self.store.evolve(scope, goal_id, expected_version, {"metadata": metadata, "status": "archived" if completed else "active"}, evidence_refs, "goal-progress")
 
     def carryover(self, scope):
-        return [n for n in self.store.nodes(scope) if n["type"] == "Goal" and n["status"] == "active"]
+        return [n for n in self.store.nodes(scope) if n["type"] == "Goal" and n["status"] == "active" and n["metadata"].get("layer") == "carryover"]
 
 
 class SelfProjection:

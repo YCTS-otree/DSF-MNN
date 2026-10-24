@@ -10,6 +10,8 @@ Linux 采用相同源代码与数据格式。时区由 IANA ZoneInfo 处理；�
 
 ## DSH 阶段接入
 
+以下编号流程描述 v1.0.0 保留的影子接口。v1.1.0 首次恢复使用独立原生 CompactionEngine 与 ACR，不继承 Basic 摘要策略；见 [当前操作说明](COGNITIVE_DREAMING.md) 和 [ADR-003](ADR-003.md)。真实隔离验证已完成，正式 DSF 插件装配仍未启用。
+
 1. 用户授权的只读快照导出器产出 `dsf-mnn-snapshot/1`，包含 session_id、有序唯一事件 ID/seq、来源 URI、aware observed_at、来源类型、正文哈希所覆盖的规范数据。
 2. `snapshot.validate_snapshot` 校验 Python canonical JSON SHA256、绑定和顺序。不能以模型输入中的 user_id/workspace_id 作为授权。
 3. `adapters/dsh/client.mjs` 从可信 resolveScope(agent) 取得完整 scope，通过 stdin 发送本地 Python worker；每次调用有 AbortSignal、超时和响应上限。无监听端口，无模型 API。
@@ -17,11 +19,11 @@ Linux 采用相同源代码与数据格式。时区由 IANA ZoneInfo 处理；�
 5. 生产 resolveSnapshot 尚未实现。该 hook 的公开 input 不含 sourceEventSeqs，必须在本机实际 token-meter replay 和原始事件间建立严格映射。不能按文本模糊匹配，也不能拿整个 Session 作为压缩选区。
 6. DSH 仍独占 surface replacement、start/summary/end、并发排斥、maintenance、flush、取消和 shrink 验证。prepared 只说明 MNN 已保存；DSH commit 后由可信观察者以 session/compaction_id/snapshot_digest 记 ack。中间崩溃可留下 prepared 未 ack，需对账，不声称跨库原子。
 
-目前没有自动插件装配或修改 DSF config 的脚本。因此原 Basic 保持可用。未来正式启用前必须通过 DSF 的 ArchiveManager 集中门禁：只停止本项目 Bridge/独立 DSH，生成完整且校验通过的 .DSF，再由明确开关安装新后端；备份失败不得开放。工作 DSH 3080 和全局设置不在范围。
+目前没有自动插件装配或修改正式 DSF config 的脚本，本轮也不尝试恢复 Basic。未来正式启用前必须通过 DSF 的 ArchiveManager 集中门禁：只停止本项目 Bridge/独立 DSH，生成完整且校验通过的 .DSF，再由明确开关安装新后端；备份失败不得开放。工作 DSH 3080 和全局设置不在范围。
 
 ## 三种回忆
 
-Automatic Recall 使用 `Recall.context` 或 stdio recall，默认 hybrid，字节预算内输出来源和时间标签；作为数据交给现有 context API。Voluntary Recall 使用绑定了 scope 的 MemoryTools，避免把大量内部对象倒入上下文。Spontaneous Association 接受 input/tool_result/reading/goal/dreaming cue，同图低成本 gate + 有预算深挖，候选经应用证据校验才可 related_to 入图。当前不注册 DSH 模型工具，待权限绑定验收。
+Automatic Recall 使用 `Recall.context` 或 stdio recall，默认 hybrid，字节预算内输出来源和时间标签；可选 EvidenceRecall 增加同库存证回查。Voluntary Recall 使用绑定了 scope 的 MemoryTools，避免把大量内部对象倒入上下文。Spontaneous Association 接受 input/tool_result/reading/goal/dreaming cue，同图低成本 gate + 有预算深挖，候选经应用证据校验才可 related_to 入图。隔离内核已注册 3 个只读 MNN 工具；正式回调与工具集待绑定验收。
 
 Core/Self 的现有 section/版本由 DSF 继续管理。SelfProjection 只是证据化 overlay，不自行提高 prompt role；order 不是真实安全层级。私人空间文件只能将来显式选择索引，不自动重排/覆盖/扫描，信件保持 external 标签。
 

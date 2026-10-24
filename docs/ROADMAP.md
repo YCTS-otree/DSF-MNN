@@ -1,12 +1,12 @@
 # 后续验收清单
 
-本版交付 WP00 和可运行的独立研究核心；WP02–WP09 不整体宣称完成。
+v1.1.0 已完成真实分段 LLM Dreaming、ACR 与隔离原生恢复，见恢复报告；WP02–WP09 不整体宣称完成。下列初始清单中的 LLM extractor、只读导出、精确选区及空闲上下文重建已在隔离实验实现，剩余工作重点是生产绑定、事实质量与故障矩阵。
 
 1. 选择中文/英文/技术混合的已有本地模型或经授权外部 Provider，记录模型许可、revision、词表摘要和逐查询质量；当前机器缺 sentence-transformers 与模型，未自行安装。
 2. 增加可替换的结构化 LLM extractor；先验证提取可信度、显式矛盾、去重、Episode 语义边界，禁止无证据因果与大批历史改写。当前仅确定性分组/显式事实。
 3. 为本机 DSH 0.2.0-rc.2 实现精确选区 sourceEventSeqs 绑定和真实只读 snapshot 导出；审查 memory scope 跨 session 授权复用。不得依赖私有文件 monkey-patch。
 4. 接入 pre-turn / 工具结果 / 阅读线索回调及原生主动工具。完成 prepared/ack 对账、删除 tombstone、防重导入、取消和崩溃故障矩阵，再启用 shadow。
-5. 验证 DSH 的 pressure / context-overflow / /compact、Token Meter 收敛、持久事务、并发维护和工具配对。保留 Basic 配置回退。
+5. 验证 DSH 的 pressure / context-overflow / /compact、Token Meter 收敛、持久事务、并发维护和工具配对。保留显式配置与恢复点；当前 MNN 失败必须停止，不静默回退 Basic。
 6. Dreaming 从显式 tick 升级到 DSH 授权的真实后台调度；在 Agent idle 时重建上下文，不新增可见用户会话。扩展 replay、跨项目归纳、带证据的图组织和可选反思；允许 No-op。
 7. Self overlay 对接主项目既有版本化投影与 prompt section，不重复人格库。私人空间只做授权选择索引，保留 external/creative/experience 的来源标签。
 8. 研究 [LongMemEval](https://github.com/xiaowu0162/LongMemEval) 的 500 问题、answer_session_ids / turn has_answer 标注，接入信息更新、时间、多会话与 abstention。源码 MIT；数据分发页许可另行核对后再下载。
