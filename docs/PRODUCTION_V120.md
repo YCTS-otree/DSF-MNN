@@ -1,4 +1,6 @@
-# MNN 1.2.0 验收记录（2026-10-24）
+# MNN 1.2.0 主线集成验收记录（2026-10-24）
+
+以下 DSF 命令与正式操作均由相邻 DS_Friend 主线执行；MNN 本仓库只提供记忆及重建接口。
 
 ## 固定基线及隔离
 
@@ -10,9 +12,9 @@ DSF 基线 `1ffbc76`，分支 `integration/mnn-v1.2.0`；MNN 基线 `7fcccbc`，
 
 | 验证 | 结果 |
 | --- | --- |
-| DSF Node 自动测试 | 185 项：182 通过，3 跳过 |
+| DSF Node 自动测试 | 186 项：183 通过，3 跳过 |
 | DSF Python unittest | 60 通过 |
-| MNN Python pytest | 63 通过 |
+| MNN Python pytest | 66 通过 |
 | MNN 原生 Node 适配器 | 9 通过 |
 | JS/MJS 与 Python 静态检查 | 通过 |
 | 合成整份 DSF 恢复及恢复前备份 | 通过，正式数据写入 false |
@@ -23,15 +25,15 @@ DSF 基线 `1ffbc76`，分支 `integration/mnn-v1.2.0`；MNN 基线 `7fcccbc`，
 
 ## 三轮真实 Provider / 原生 DSH
 
-最终原始记录：`.research/mnn-v120/native-54ce88b1-e729-4aca-bab6-d03205c931e7/`。使用合成聊天、独立存储、真实 DeepSeek 官方 API，测试路由窗口 65,536（用于较快触发阈值，不代表模型正式容量）。真实 native tokenMeter、官方词表及 Provider 用量参与预算。
+最终原始记录：`.research/mnn-v120/native-16c9d4ca-efa6-4a16-9a05-ef66870d0201/`。使用合成聊天、独立存储、真实 DeepSeek 官方 API，测试路由窗口 65,536（用于较快触发阈值，不代表模型正式容量）。真实 native tokenMeter、官方词表及 Provider 用量参与预算。
 
 | 轮 | 整理前预测压力 | 整理后 | 累计 checkpoint |
 | --- | --- | --- | --- |
-| 1 / Soft | 86.07% | 16.36% | 1 |
-| 2 / Emergency | 96.41% | 40.88% | 2 |
-| 3 / Soft | 86.84% | 21.66% | 3 |
+| 1 / Soft | 86.12% | 17.14% | 1 |
+| 2 / Emergency | 97.24% | 41.01% | 2 |
+| 3 / Soft | 86.94% | 21.22% | 3 |
 
-三轮保持同一个 Session `07a8b44b-24a7-46ad-bf09-d0e4706452e7`。每轮原事件前缀完全相等，Carryover 存在，精确参数 `port=3099` 有证据召回。退出后官方持久化只读重开：3 个工具调用、3 个结果配对，pending input=0，末轮 completed，三个 checkpoint 保留。
+三轮保持同一个 Session `703ee9c7-509c-446d-99ea-a4a06214fbbb`。每轮原事件前缀完全相等，Carryover 存在，精确参数 `port=3099` 有证据召回。退出后官方持久化只读重开：3 个工具调用、3 个结果配对，pending input=0，末轮 completed，三个 checkpoint 保留。
 
 其他成功运行 native-916557f8…、native-b1f85a8a… 的三轮也保留。全部失败样本保留：路由 catalog 窗口覆盖、Surface 顺序、旧成功收据错误复用、16K 配置无法达到 60% 水位、undefined 恢复 source 严格校验失败。对应修复已进入回归。没有删除失败目录或用后续结果覆盖它们。
 
@@ -64,3 +66,7 @@ v1.1 原图 Hybrid MRR 0.2708 低于早期冻结 0.3125 的负面结论未被抹
 正式第二次整理的 10 个 extraction chunk 已落盘，但巩固回复含未知 memory_ref，被验证层拒绝，未提交 checkpoint；formal-43dc88c4… 及收据保留。增加最多两次受来源约束的修复请求；无效引用仍不能提交，故障测试覆盖持续失败停止。
 
 完整 Profile 的首个真实输入暴露缺少 sessions/llm/tokenMeter 的 Cordis 注入声明，已修复；随后一轮断言误把 P2 当作 system 角色，改按实际 user/runtime-context 核验。最终 runtime-355c28c8… 成功：调用 MNN recall、完成、无 Self 提交工具、无对外 emission。另加双花括号记忆不被再次模板求值的回归。
+
+formal-16e13d42… 因修复后源码与旧 run-manifest 不同而安全停止，未重新提取或写 checkpoint。运行身份现包含实现摘要、提取/重建模式与当前任务，旧目录保持原样；跨模式复用已持久化语义结果和同 Session 历史，两个新增回归均通过。
+
+最终门禁 validation-cdadbb35…：静态、186 项 Node（183 通过、3 跳过）、60 项 Python、66 项 MNN、整份恢复和完整 Profile 真实合成调用全部通过。完整逐轮结果、精确比值和门禁摘要见 [结构化报告](mnn-validation-v120.json)。历史绝对收据路径不被跟随，搬迁恢复测试通过；原始提取证据和旧源码清单未被覆盖。
