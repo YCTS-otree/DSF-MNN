@@ -92,3 +92,17 @@ def test_implementation_change_preserves_old_run_and_reuses_durable_chunks(tmp_p
         assert one['run_id']!=two['run_id'];assert provider.calls==calls
         assert (tmp_path/'runs'/one['run_id']/'history.json').read_bytes()==old
     finally:m.close()
+
+def test_relocated_store_never_follows_serialized_absolute_history_path(tmp_path):
+    import shutil
+    old=tmp_path/'old';provider=Provider();m=ProductionMemory(old,provider=provider,counter=Counter());data=export()
+    try:
+        daily=m.dreaming(data,day='2026-10-21',reconstruct=False)
+        body={**daily,'semantic_file':'/untrusted/outside-history.json'}
+        m.store.db.execute('UPDATE production_runs SET body=? WHERE id=?',(json.dumps(body),daily['run_id']))
+    finally:m.close()
+    moved=tmp_path/'moved';shutil.move(old,moved);m=ProductionMemory(moved,provider=provider,counter=Counter())
+    try:
+        result=m.dreaming(data,day='2026-10-21',reconstruct=True)
+        assert result['memoryPersisted'] and result['plan'] and not result['semantic_file'].startswith('/')
+    finally:m.close()

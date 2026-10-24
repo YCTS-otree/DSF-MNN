@@ -94,9 +94,14 @@ class ProductionMemory:
         else:
             receipt=self.store.db.execute("SELECT body FROM production_runs WHERE json_extract(body,'$.session_id')=? OR json_extract(body,'$.plan.session_id')=? ORDER BY rowid DESC LIMIT 1",(original['session_id'],original['session_id'])).fetchone()
             if not receipt:raise MemoryError('dreaming-no-history')
-            history=json.loads(Path(json.loads(receipt[0])['semantic_file']).read_text(encoding='utf-8'))
+            previous_id=json.loads(receipt[0])['run_id']
+            if not isinstance(previous_id,str) or not re.fullmatch('[a-f0-9]{64}',previous_id):raise MemoryError('dreaming-history-path')
+            previous_file=(self.directory/'runs'/previous_id/'history.json').resolve()
+            if not previous_file.is_relative_to(self.directory.resolve()):raise MemoryError('dreaming-history-path')
+            # Receipt paths are provenance, never a request to open another file.
+            history=json.loads(previous_file.read_text(encoding='utf-8'))
         history={**history,'snapshot_digest':digest(mapped['events'])};history_file=folder/'history.json';atomic_json(history_file,history)
-        result={'run_id':run_id,'session_id':original['session_id'],'implementation_revision':revision,'memoryPersisted':True,'self_update':'noop','semantic_file':str(history_file),'snapshot_digest':digest(original['events']),'carryover':history['consolidation']['carryover']}
+        result={'run_id':run_id,'session_id':original['session_id'],'implementation_revision':revision,'memoryPersisted':True,'self_update':'noop','semantic_file':history_file.relative_to(self.directory).as_posix(),'snapshot_digest':digest(original['events']),'carryover':history['consolidation']['carryover']}
         if reconstruct:
             plan=AdaptiveContextReconstruction(counter,context_tokens=context_tokens,output_reserve=output_reserve).build(mapped,records,self.store,self.scope,history,current_task=current_task)
             reverse={v:k for k,v in lookup.items()}
